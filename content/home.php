@@ -43,20 +43,20 @@
 
       <!-- get count Rejected  php code start -->
         <?php
-           $view_status ="reject";
+           //$view_status ="reject";
 
-           $queryr ="SELECT COUNT(id) as iid FROM jobs WHERE state='$view_status'";
+           $queryr ="SELECT COUNT(id) as iid FROM jobs WHERE state='design' OR state='production' OR state='QA'";
            $resultr =mysqli_query($conn,$queryr);
            while ($rowr =mysqli_fetch_array($resultr))
            {
-              $rej =$rowr['iid'];
+              $ass =$rowr['iid'];
            }
         ?>
       <!-- get count Rejected php code end -->
 
       <!-- get count Dispatch  php code start -->
         <?php
-           $view_status ="distpatch";
+           $view_status ="dispatch";
 
            $queryd ="SELECT COUNT(id) as iid FROM jobs WHERE state='$view_status'";
            $resultd =mysqli_query($conn,$queryd);
@@ -76,6 +76,17 @@
            while ($rowc =mysqli_fetch_array($resultc))
            {
               $com =$rowc['iid'];
+           }
+        ?>
+
+         <?php
+           $view_status ="reject";
+
+           $queryr ="SELECT COUNT(id) as iid FROM jobs WHERE state='$view_status'";
+           $resultr =mysqli_query($conn,$queryr);
+           while ($rowr =mysqli_fetch_array($resultr))
+           {
+              $rej =$rowr['iid'];
            }
         ?>
       <!-- get count Complete php code end -->
@@ -105,7 +116,7 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5"><?php echo $rej;?> On Progress Jobs</div>
+              <div class="mr-5"><?php echo $ass;?> On Progress Jobs</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" href="rejected">
               <span class="float-left">View Details</span>
@@ -147,7 +158,40 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> <!-- end of 1st row-->
+
+      <div class="row">
+        <div class="col-xl-4 col-sm-4 col-md-4">
+          <div class="card bg-default">
+            <div class = "card-body">
+              <h6>OPEN JOBS</h6><hr style="color:gray">
+              <table>
+                <tr>
+                  <td><a href="inbound_requests" style="text-decoration: none">New</a></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:green; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$inre.'</label>';?></td>
+                </tr>
+                <tr>
+                  <td><a href="design" style="text-decoration: none">Assigned</a></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:orange; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$ass.'</label>';?></td>
+                </tr>
+                <tr>
+                  <td><a href="dispatch" style="text-decoration: none">Ready to dispatch</a></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$dis.'</label>';?></td>
+                </tr>
+                <tr>
+                  <td><a href="completed" style="text-decoration: none">Completed</a></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$com.'</label>';?></td>
+                </tr>
+                <tr>
+                  <td><a href="rejected" style="text-decoration: none">Rejected</a></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:gray; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$rej.'</label>';?></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div><!-- end of 2nd row-->
+
     </div>
   </div>
     <!-- /.container-fluid-->

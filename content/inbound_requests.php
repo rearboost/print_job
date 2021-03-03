@@ -12,20 +12,6 @@
   <title>Job Shop - Inbound Requests</title>
   <!-- header -->
   <?php include('../include/head.php'); ?>
-  <script type="text/javascript">
-    // $(document).ready(function()){
-    //   $("#type").change(function(){
-    //     var type_name = $("type").val();
-    //     $.ajax({
-    //       url:'../functions/get_data.php',
-    //       method: 'post',
-    //       data: 'type_name'+ type_name
-    //     }).done(function(products){
-    //       console.log(products);
-    //     })
-    //   })
-    // }
-  </script>
 
 </head>
 
@@ -46,7 +32,7 @@
       <input type="text" name="search_text" id="search_text" placeholder="Search by Job ID " class="form-control  form-control-sm" style="width: 40%;"/>
       </div>
       <div class="col-md-2">
-        <button type="button" id="" name="" class="btn btn-primary btn-sm submit_data" data-toggle="modal" data-target="#myModal1" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px;">+NEW JOB ORDER</button>
+        <button type="button" id="" name="" class="btn btn-primary btn-sm submit_data" data-toggle="modal" data-target="#myModal1" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px; float:right" ><font color="green"><b>+ </b></font>New Job</button>
       </div>
       </div>
 
@@ -58,12 +44,12 @@
             <button type="button" class="close" data-dismiss="modal" onclick="form_reset()">&times;</button>
           </div>
           <div class="modal-body" style="background-color: #d6e1e9;">
-            <form method="post" id="order_submit">
+            <form id="order_submit">
                 <div class="col-sm-12" style="display: inline-flex;">
                   <div class="col-sm-4" style="float: right;">
                     <label>Customer</label>
                     <input type="text" name="customer_name" id="customer_name" class="form-control view_customer" style="margin-bottom: 10px;"/>
-                    <input type="text" name="customer_id" id="customer_id" class="form-control view_customer" style="margin-bottom: 10px;"/>
+                    <input type="hidden" name="customer_id" id="customer_id" class="form-control view_customer" style="margin-bottom: 10px;"/>
                   </div>
                   <div class="col-sm-4">
                     <label>Contact</label>
@@ -78,15 +64,15 @@
                 <div class="col-sm-12" style="display: inline-flex;">
                   <div class="col-sm-3">
                     <label>Select Channel</label>
-                    <SELECT name="channel" id="channel" class="form-control" style="margin-bottom: 10px;" required>
-                      <option value="default">Select Channel</option>
+                    <SELECT name="channel" id="channel" class="form-control" style="margin-bottom: 10px;">
+                      <option selected="" disabled="">Select Channel</option>
                       <option value="EXP">Express Channel</option>
                       <option value="DIR">Direct Channel</option>
                     </SELECT>
                   </div>
                   <div class="col-sm-3">
                     <label>Select Job Type</label>
-                    <SELECT name="types" id="types" class="form-control" style="margin-bottom: 10px;" required>
+                    <SELECT name="type" id="type" class="form-control" style="margin-bottom: 10px;">
                       <option selected="" disabled="">Select Job Type</option>
                       <?php
                       $type = "SELECT *
@@ -107,17 +93,14 @@
                   </div>
                   <div class="col-sm-3">
                     <label>Select Item</label>
-                    <SELECT name="item" id="item" class="form-control" style="margin-bottom: 10px;" required>
-                      <!-- <option value="Logo design">Logo design</option>
-                      <option value="Business card">Business card</option> -->
+                    <SELECT name="item" id="item" class="form-control" style="margin-bottom: 10px;">
+                      <option selected="" disabled="">Select Job Type First</option>
                     </SELECT>
                   </div>
                   <div class="col-sm-3">
                     <label>Select Category</label>
-                    <SELECT name="category" id="category" class="form-control" style="margin-bottom: 10px;" required>
-                      <option value="Simple Package">Simple Package</option>
-                      <option value="Business package">Business package</option>
-                      <option value="Enterprise package">Enterprise package</option>
+                    <SELECT name="category" id="category" class="form-control" style="margin-bottom: 10px;">
+                      <option selected="" disabled="">Select Item First</option>
                     </SELECT>
                   </div>
                 </div>
@@ -126,16 +109,16 @@
                     <label>Quantity</label>
                     <input type="text" name="qty" id="qty" class="form-control" style="margin-bottom: 10px;"/>
                   </div>
-                  <div class="col-sm-3">
-                    <label>Material</label>
+                  <div class="col-sm-3" id="material1">
+                    <label >Material</label>
                     <input type="text" name="material" id="material" class="form-control" style="margin-bottom: 10px;"/>
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm-3" id="size1">
                     <label>Size</label>
                     <input type="text" name="size" id="size" class="form-control" style="margin-bottom: 10px;"/>
                   </div>
                 </div>
-                <div class="col-sm-12" style="display: inline-flex;">
+                <div class="col-sm-12" style="display: inline-flex;" id="bind1">
                   <div class="col-sm-3">
                     <label>Bind</label>
                     <SELECT name="bind" id="bind" class="form-control" style="margin-bottom: 10px;">
@@ -252,6 +235,7 @@ $(document).ready(function(){
    }
   });
  }
+
  $('#search_text').keyup(function(){
   var search = $(this).val();
   if(search != '')
@@ -264,28 +248,58 @@ $(document).ready(function(){
   }
  });
 
-/////////////// fetch products of each type ///////////////////
-  // $("#type").change(function(){
-  //   var type = $(this).val();
-  //   if(type){
-  //     alert(type)
-  //     $.ajax({
-  //       url: "../functions/get_products.php",
-  //       dataType:'json',
-  //       data:{"type":type},
-  //       success: function (data) {
-          
-  //          $('#item').empty();
-  //          $.each(data, function(key, value){
-  //           $('#item').append('<option value="'+key+'">' + value + '</option>');
-  //          });
-  //       }
-  //     });
 
-  //   }else{
-  //     $('#item').empty();
-  //   }
-  // });
+  $('#channel').on('change', function() {
+    if ( this.value == 'EXP')
+    //.....................^.......
+    {
+      $("#size1").hide();
+      $("#bind1").hide();
+      $("#material1").hide();
+    }else{
+      $("#size1").show();
+      $("#bind1").show();
+      $("#material1").show();
+    }
+  });
+
+////////////// get items ///////////////////////
+  $("#type").on('change',function(){
+    var type = $(this).val();
+    if(type){
+      
+      $.get(
+        "../functions/get_products.php",
+        {type:type},
+        function (data) { 
+          //alert(type)
+          $('#item').html(data);
+        }
+      );
+         
+    }else{
+      $('#item').html('<option>Select Job Type First</option>');
+    }
+  });
+
+///////////// get categories /////////////////////
+  $("#item").on('change',function(){
+    var item = $(this).val();
+    if(item){
+      
+      $.get(
+        "../functions/get_category.php",
+        {item:item},
+        function (data) { 
+          alert(item)
+          $('#category').html(data);
+        }
+      );
+         
+    }else{
+      $('#category').html('<option>Select Item First</option>');
+    }
+  });
 
 });
 
@@ -293,6 +307,7 @@ $(document).ready(function(){
 $("#budget").keyup(function(){
 
   var budget =document.getElementById('budget').value;
+
   $('#rest').val(budget);
   $('#discounted').val(budget);
 
@@ -325,26 +340,6 @@ $('#ad_pay_amount').keyup(function(){
     
 });
 
-
-// // Customer details load value in jquery
-// $(document).on('keyup', '.view_customer', function(){
-
-//   var customer = document.getElementById('customer_name').value;
-
-//   $.ajax({
-//        url:"../functions/get_customer.php",
-//        method:"POST",
-//        data:{customer:customer},
-//        success:function(data){
-//         // alert(customer)
-//          var data =JSON.parse(data);
-
-//         $('#customer_contact').val(data['uphone']);
-//         $('#customer_address').val(data['uemail']);
-
-//        }
-//   });
-// });
 
 $('#customer_name').on('keyup', function() {
 
@@ -406,6 +401,11 @@ function FormInsert() {
 
   var form_btn_submit =document.getElementById('form_btn_submit').name;
 
+  if(customer=='' || item=='' || budget==''){
+    alert("Required field is empty!");
+  }
+  else {
+
    $.ajax({
      url:"../controller/inbound_requests_controller.php",
      method:"POST",
@@ -418,6 +418,7 @@ function FormInsert() {
 
      }
   });
+ }
  }
 
 // Message success view

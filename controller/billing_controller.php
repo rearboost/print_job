@@ -4,25 +4,6 @@
   // session check
   include('../include/check.php');
 
-// Logic Delete the  Inbound Requests  use id start
-   if (isset($_GET['j_delete_id']))
-    {
-        $id = $_GET['j_delete_id'];
-        $query ="DELETE FROM  jobs WHERE id=?;";
-        $stmt =mysqli_stmt_init($conn);
-        if(!mysqli_stmt_prepare($stmt,$query))
-        {
-           echo "SQL Error";
-        }
-        else
-        {
-            mysqli_stmt_bind_param($stmt,"s",$id);
-            $result =  mysqli_stmt_execute($stmt);
-        }
-    }
-    // Logic Delete the  Inbound Requests  use id end
-
-
     //Inbound Requests php code strat
    if(isset($_POST['view_id']))
    {
@@ -103,7 +84,7 @@
     $data   = mysqli_fetch_assoc($sqli);
     $max_no = $data['max_no']+1; 
 
-    $duration = date('Ymdhis');
+    $duration = date("Ymdhis");
     $job_no   = $duration . $max_no;
 
     $status ="request";

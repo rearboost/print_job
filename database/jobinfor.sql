@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2021 at 02:20 AM
+-- Generation Time: Mar 03, 2021 at 02:12 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.30
 
@@ -68,7 +68,10 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `customer_name`, `contact`, `address`) VALUES
-(1, 'Amali senadheera', '071 7894578', 'No:01, kalutara north, kalutara');
+(1, 'Amali senadheera', '071 7894578', 'No:01, kalutara north, kalutara'),
+(2, 'Rashini Amanda', '071 4789789', 'Panadura'),
+(3, 'hasitha senanayaka', '071 7894568', 'No:01, neboda, kalutara'),
+(4, 'Malinda perera', '071 4789456', 'No.43/D/4, 3rd Lane, Galwarusa, Korathota, Kaduwela.');
 
 -- --------------------------------------------------------
 
@@ -138,10 +141,10 @@ INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`
 (6, '', '34', '', '', '', '', 'das', '', '', '234', 'dfs', '2018-04-19', '3242.00', '24.00', '242.00', '0.00', '42.00', '0.00', 'dsf', 'dispatch', '', 'admin@gmail.com', '', '0.00', '0.00', '0.00', '', '', ''),
 (7, '', '435', '', '', '', '', 'dfs', '', '', 'sf', 'dfsf', '2018-04-03', '432.00', '324.00', '324.00', '0.00', '234.00', '0.00', 'fsdf', 'complete', '', '', '', '33000.00', '568.00', '32432.00', '2021-02-17', '2021', '02'),
 (8, '', '435', '', '', '', '', 'dfsd', '', '', '#000000', 'fdgfd', '2018-04-10', '5.00', '5000.00', '0.00', '5000.00', '2000.00', '3000.00', 'dsfsf', 'QA', '', '', '', '3000.00', '0.00', '3000.00', '2021-02-24', '2021', '02'),
-(9, '', '453', '', '', '', '', 'fds', '', '', 'hg', 'ghfg', '2018-04-24', '66.00', '4324.00', '42.00', '0.00', '423.00', '0.00', 'fsdds', 'complete', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(9, '', '453', '', '', '', '', 'fds', '', '', 'hg', 'ghfg', '2018-04-24', '66.00', '4324.00', '42.00', '0.00', '423.00', '0.00', 'fsdds', 'complete', '', '', '', '0.00', '0.00', '0.00', '2021-01-20', '', ''),
 (10, '', '564', '', '', '', '', 'dsfsd', '', '', '23', 'dasd', '2018-04-23', '1.00', '1250.00', '0.00', '1250.00', '250.00', '1000.00', '34234', 'dispatch', '', '', '', '1000.00', '0.00', '1000.00', '2021-02-24', '2021', '02'),
 (11, '', '546', '', '', '', '', 'gfdg', '', '', '#000000', 'rtert', '2018-04-24', '5.00', '7500.00', '2.00', '7350.00', '0.00', '7350.00', 'dfg', 'dispatch', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(12, '', '234', '', '', '', '', 'sdfs', '', '', '#2048f6', 'fdgdg', '2018-04-23', '3423.00', '11.96', '12.00', '0.00', '10.00', '0.00', 'tert', 'complete', '', '', '', '0.00', '0.00', '34.00', '', '', ''),
+(12, '', '234', '', '', '', '', 'sdfs', '', '', '#2048f6', 'fdgdg', '2018-04-23', '3423.00', '11.96', '12.00', '0.00', '10.00', '0.00', 'tert', 'complete', '', '', '', '0.00', '0.00', '34.00', '2021-01-20', '', ''),
 (13, '', '0', '', '', '', '', 'Stainless Steel', '', '', '#000000', 'This notice by production', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'production', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (14, '', '0', '', '', '', '', '', '', '', '#e00b0b', 'This notice by designer.', '0000-00-00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'design', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (15, '', '0', '', '', '', '', 'Aluminium', '', '', '#000000', '', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 'Immediate', 'production', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
@@ -155,7 +158,9 @@ INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`
 (23, '', 'Hasitha', '', '', '', '', 'Plastic', '', '', '#000000', 'asda', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'request', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (24, '20210226020334am24', 'Rashini Amanda', 'EXP', 'Digital printing', 'Business card', 'Business package', 'mat card', 'small', 'None', 'red', '', '2021-02-25', '100.00', '10000.00', '2.00', '9800.00', '5000.00', '4800.00', 'Printed card with design.', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (25, '20210226021306am25', 'Kavishka prabath', 'DIR', 'Design', 'Logo design', 'Simple Package', '', 'Medium', 'None', 'red', '', '2021-02-25', '1.00', '2500.00', '0.00', '2500.00', '1000.00', '1500.00', 'Design with source file.', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(26, '20210226021633am26', 'Amali senadheera', 'EXP', 'Design', 'Business card', 'Business package', 'shine card', 'small', 'None', 'red', '', '2021-02-25', '150.00', '15000.00', '1.50', '14775.00', '6000.00', '8775.00', 'With design', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '');
+(26, '20210226021633am26', 'Amali senadheera', 'EXP', 'Design', 'Business card', 'Business package', 'shine card', 'small', 'None', 'red', '', '2021-02-25', '150.00', '15000.00', '1.50', '14775.00', '6000.00', '8775.00', 'With design', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(27, '2021030111414427', 'hasitha senanayaka', 'EXP', 'Offset Printing', 'Logo design', 'Simple Package', '', '', 'None', 'red', '', '2021-03-01', '100.00', '10000.00', '2.50', '9750.00', '4000.00', '5750.00', 'fgfdshhgf', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(28, '2021030302101528', 'Malinda perera', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'small', 'None', 'red', '', '2021-03-02', '100.00', '7000.00', '0.00', '7000.00', '2000.00', '5000.00', 'with design', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -179,48 +184,6 @@ INSERT INTO `jobs_type` (`id`, `type`) VALUES
 (4, 'Offset Printing'),
 (5, 'Sublimation Printing'),
 (6, 'Others');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `noteinfor`
---
-
-CREATE TABLE `noteinfor` (
-  `id` int(11) NOT NULL,
-  `jobid` int(11) NOT NULL,
-  `pval` int(11) NOT NULL,
-  `note` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `noteinfor`
---
-
-INSERT INTO `noteinfor` (`id`, `jobid`, `pval`, `note`) VALUES
-(1, 9, 73, 'TEE'),
-(2, 0, 39, 'HJHJ'),
-(3, 0, 58, 'RTRT'),
-(4, 9, 54, 'RTR'),
-(5, 9, 47, 'TYTY'),
-(6, 9, 38, 'UU'),
-(7, 7, 63, 'Test'),
-(8, 8, 28, 'Test'),
-(9, 8, 19, 'Test1'),
-(10, 8, 50, 'Test'),
-(11, 8, 0, 'TYTYTY'),
-(12, 8, 0, 'YUYUUU'),
-(13, 8, 0, 'YIYUUU'),
-(14, 8, 40, 'GHGG'),
-(15, 8, 57, 'UIUI'),
-(16, 8, 0, 'YUUUUUUU)))'),
-(17, 12, 0, 'HJHJ'),
-(18, 12, 71, 'Test 71'),
-(19, 11, 60, 'TTTTUU'),
-(20, 12, 63, 'TTT'),
-(21, 5, 0, 'kk'),
-(22, 5, 32, 'jjj'),
-(23, 5, 11, 'oo');
 
 -- --------------------------------------------------------
 
@@ -533,12 +496,6 @@ ALTER TABLE `jobs_type`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `noteinfor`
---
-ALTER TABLE `noteinfor`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -581,22 +538,17 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `jobs_type`
 --
 ALTER TABLE `jobs_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `noteinfor`
---
-ALTER TABLE `noteinfor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `product`
 --

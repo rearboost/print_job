@@ -19,31 +19,29 @@
   // Database Connection
   require '../include/config.php';
   
-  
-  //$month  =$_POST["query2"];
-  //$year   =$_POST["query3"];
 
-  if(isset($_POST["query"]))
+  if(isset($_POST["year"]) && !empty($_POST["year"]))
+  {
+    $year   =$_POST["year"];
+    $query = "SELECT dispatch_month AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_year='$year' GROUP BY column1 HAVING sales>0";
+  }
+  else if(isset($_POST["year"]) && ($_POST["month"]))
+  {
+    $year    =$_POST["year"];
+    $month  =$_POST["month"];
+    $query = "SELECT dispatch_day AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_year='$year' AND dispatch_month='$month' GROUP BY column1 HAVING sales>0";     
+  }
+   
+  else if(isset($_POST["query"]))
   {    
-  $date   =$_POST["query"];
-  $query = "SELECT dispatch_day AS column1, SUM(payment) AS sales FROM jobs WHERE dispatch_day='$date' GROUP BY column1 HAVING sales>0";
+    $date   =$_POST["query"];
+    $query = "SELECT dispatch_day AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_day='$date' HAVING sales>0";
 
   }
-  // else if(isset($_POST["query3"]))
-  // {
-  //   $query = "SELECT month AS column1, SUM(payment) AS sales FROM jobs GROUP BY month HAVING sales>0 ";
-  // }
-  // else if(isset($_POST["query2"])&&isset($_POST["query3"]))
-  // {
-  //   $query = "SELECT date AS column1, SUM(payment) AS sales FROM jobs GROUP BY date HAVING sales>0 ";
-  // }
   else 
   {
-    //$query = "SELECT MAX(dispatch_year) AS max_year, dispatch_month AS column1, SUM(payment) AS sales FROM jobs WHERE dispatch_year='max_year' GROUP BY column1 HAVING sales>0";
-    
-    $query = "SELECT dispatch_year AS max_year, dispatch_month AS column1, SUM(payment) AS sales FROM jobs GROUP BY column1 HAVING sales>0 ORDER BY dispatch_year DESC LIMIT 1";
-    
-    
+    $query = "SELECT dispatch_year AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs GROUP BY column1 HAVING sales>0";
+ 
   }
 
   $result = mysqli_query($conn ,$query);

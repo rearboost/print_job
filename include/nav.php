@@ -11,27 +11,20 @@
           <span class="nav-link-text">Dashboard</span>
         </a>
       </li>
+
+      <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <a class="nav-link" href="jobs">
+          <i class="fa fa-fw fa fa-thumbs-down"></i>
+          <span class="nav-link-text">Job list</span>
+        </a>
+      </li> -->
+
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
         <a class="nav-link" href="inbound_requests">
           <i class="fa fa-fw fa fa-bell"></i>
           <span class="nav-link-text">Inbound Requests</span>
         </a>
       </li>
-
-      <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-wrench"></i>
-          <span class="nav-link-text">Received Jobs</span>
-        </a>
-        <ul class="sidenav-second-level collapse" id="collapseComponents">
-          <li>
-            <a href="received">Received Jobs</a>
-          </li>
-          <li>
-            <a href="pending">Pending Jobs</a>
-          </li>
-        </ul>
-      </li> -->
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
         <a class="nav-link" href="rejected">
@@ -58,13 +51,6 @@
         </ul>
       </li>
 
-      <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-        <a class="nav-link" href="in_progress">
-          <i class="fa fa-fw fa fa-clock-o"></i>
-          <span class="nav-link-text">Jobs in Progress</span>
-        </a>
-      </li> -->
-
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
         <a class="nav-link" href="dispatch">
           <i class="fa fa-fw fa fa-thumbs-o-up"></i>
@@ -85,21 +71,16 @@
           <span class="nav-link-text">&nbsp;Reports</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseComponents2">
-          <!-- <li>
-            <a href="daily_sales">Daily Sales</a>
-          </li> -->
+
           <li>
             <a href="daily_sales">Sales</a>
           </li>
           <li>
-            <a href="#">Daily Gross Profit</a>
+            <a href="billing">Billing</a>
           </li>
           <li>
             <a href="customer">Customer Database</a>
           </li>
-          <!-- <li>
-            <a href="monthly_sales">Monthly Sales</a>
-          </li> -->
         </ul>
       </li>
 

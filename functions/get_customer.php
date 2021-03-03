@@ -2,13 +2,6 @@
 error_reporting(0);
 	require '../include/config.php';
 	
-	 // $val =$_POST['customer'];
-  //    $sql_obj ="SELECT * FROM jobs WHERE customer='$val'";
-  //    $result_obj1 =mysqli_query($conn,$sql_obj);
-
-  //    $object_obj1 =mysqli_fetch_object($result_obj1);
-  //    echo json_encode($object_obj1);
-	
 	$val =$_POST['customer']; 
 
     $get_name = mysqli_query($conn,"SELECT * FROM customer WHERE customer_name='$val'");
@@ -26,7 +19,5 @@ error_reporting(0);
 	$myJSON = json_encode($myObj);
 
 	echo $myJSON;
-	//echo $mail;
-
 
 ?>

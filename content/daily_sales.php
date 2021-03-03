@@ -31,23 +31,9 @@
 
       <div class="row">
         <div class="col-md-4">
-          <label>Pick a date</label>
-          <input type="date" name="search_date" id="search_date" class="form-control form-control-sm" />
-        </div>
-        <div class="col-md-4">
-          <label>Pick a month</label>
-          <select class="form-control  form-control-sm" name="month" id="month">
-            <option value="January">January</option> <option value="February">February</option>
-            <option value="March">March</option> <option value="April">April</option>
-            <option value="May">May</option> <option value="June">June</option>
-            <option value="July">July</option> <option value="August">August</option>
-            <option value="September">September</option> <option value="October">October</option>
-            <option value="November">November</option> <option value="December">December</option>
-          </select>
-        </div>
-        <div class="col-md-4">
           <label>Pick a year</label>
-          <select class="form-control  form-control-sm" name="year" id="year">
+          <select class="form-control  form-control" name="year" id="year">
+            <option selected="" disabled="">Select Year</option>
             <?php
                           
               //fetch years 
@@ -64,6 +50,22 @@
                 }
               ?>
           </select>
+        </div>
+        <div class="col-md-4">
+          <label>Pick a month</label>
+          <select class="form-control  form-control" name="month" id="month">
+            <option selected="" disabled="">Select Year First</option>
+            <option value="01">January</option> <option value="02">February</option>
+            <option value="03">March</option> <option value="04">April</option>
+            <option value="05">May</option> <option value="06">June</option>
+            <option value="07">July</option> <option value="08">August</option>
+            <option value="09">September</option> <option value="10">October</option>
+            <option value="11">November</option> <option value="12">December</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label>Pick a date</label>
+          <input type="date" name="search_date" id="search_date" class="form-control form-control" />
         </div>
       </div>
   
@@ -125,6 +127,42 @@ $(document).ready(function(){
    load_data();
   }
  });
+
+ $('#month').on('change', function() {
+     var year = $('#year').val();
+     var month = $(this).val();
+
+    if(year){
+      $.ajax({
+         url:"../tables/dailysales_table.php",
+         method:"POST",
+         data:{month:month,year:year},
+         success:function(data)
+         {
+          $('#result').html(data);
+         }
+      });
+    }else{
+      alert('Please select the year first');
+       $('#month').val('');
+    }
+      
+  });
+
+ $('#year').on('change', function() {
+     var year = $(this).val();
+      
+      $.ajax({
+         url:"../tables/dailysales_table.php",
+         method:"POST",
+         data:{year:year},
+         success:function(data)
+         {
+          $('#result').html(data);
+         }
+      });
+  });
+
 });
 </script>
 <!-- end -->
