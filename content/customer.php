@@ -23,7 +23,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="home">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Customers</li>
       </ol>
@@ -39,7 +39,7 @@
       </div>
       </div>
 
-      <div id="myModal1" class="modal fade">
+      <div id="myModalcustomer" class="modal fade">
       <div class="modal-dialog" style="max-width: 500px;">
         <div class="modal-content" style="height : auto;">
           <div class="modal-header" style="background-color: #507183;">

@@ -22,7 +22,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="home">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Completed Jobs</li>
       </ol>

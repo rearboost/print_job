@@ -58,7 +58,7 @@
      <td>'.$row["customer_name"].'</td>
      <td>'.$row["contact"].'</td>
      <td>'.$row["address"].'</td>
-     <td><button type="button"  id="' .$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModal" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px;">View</button></td>
+     <td><button type="button"  id="'.$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModal" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px;">View</button></td>
 
      <td style="width: 5%;"><a href="../controller/customer_controller?C_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td>';
     echo '</tr>';
