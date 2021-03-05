@@ -67,6 +67,9 @@
         {
             mysqli_stmt_bind_param($stmt,"sssssss",$cash_edit,$change_edit,$payment_edit,$dispatch_day_edit,$dispatch_year,$dispatch_month,$job_edit);
             $result =  mysqli_stmt_execute($stmt);
+            if($result){
+              echo "Success! Product can dispatch now.";
+            }
         }
     }
 

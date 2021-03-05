@@ -4,9 +4,9 @@
   <?php
     // Database Connection
     require '../include/config.php';
-    //$id = $_GET['id']; // get id through query string
+    $id = $_GET['id']; // get id through query string
 
-    $qry = mysqli_query($conn,"SELECT * FROM jobs WHERE id='10' "); // select query
+    $qry = mysqli_query($conn,"SELECT * FROM jobs WHERE id=$id "); // select query
 
     $data = mysqli_fetch_array($qry); // fetch data
         
@@ -25,7 +25,7 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label style="color: black; margin-bottom: 0;"><b>Date</b></label><span style="color: black;"> : <?php echo $date->format('Y-m-d H:i:sa'); ?> </span><br>
-                  <label style="color: black; margin-bottom: 0;"><b>Job No</b></label><span style="color: black;"> : <?php echo $data['id'] ?> </span><br>
+                  <label style="color: black; margin-bottom: 0;"><b>Job No</b></label><span style="color: black;"> : <?php echo $data['job_no'] ?> </span><br>
                   <label style="color: black; margin-bottom: 0;"><b>Customer</b></label><span style="color: black;"> : <?php echo $data['customer'] ?> </span><br>
                 </div>
               </div> 
@@ -53,3 +53,9 @@
             <h3>THANK YOU FOR VISIT US.</h3>
          </form>
   </div>
+
+  <script>
+    $(document).ready(function(){
+        setTimeout(function(){ window.print(); }, 2000);
+    });
+  </script>

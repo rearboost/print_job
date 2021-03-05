@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2021 at 02:12 AM
+-- Generation Time: Mar 05, 2021 at 07:40 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.30
 
@@ -138,7 +138,7 @@ CREATE TABLE `jobs` (
 
 INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`, `category`, `material`, `size`, `bind`, `colour`, `user_description`, `date`, `quantity`, `budget`, `discount`, `discounted`, `ad_pay_amount`, `rest`, `admin_description`, `state`, `accepted_by`, `checked_by`, `failed_reason`, `cash`, `change_amt`, `payment`, `dispatch_day`, `dispatch_year`, `dispatch_month`) VALUES
 (5, '', '234', '', '', '', '', 'sdfs', '', '', '#e93f33', 'fdgdg', '2018-04-23', '3423.00', '696.45', '18.00', '0.00', '10.00', '0.00', 'tert', 'complete', '', '', '', '0.00', '0.00', '650.00', '2018-05-03', '2018', '05'),
-(6, '', '34', '', '', '', '', 'das', '', '', '234', 'dfs', '2018-04-19', '3242.00', '24.00', '242.00', '0.00', '42.00', '0.00', 'dsf', 'dispatch', '', 'admin@gmail.com', '', '0.00', '0.00', '0.00', '', '', ''),
+(6, '', '34', '', '', '', '', 'das', '', '', '234', 'dfs', '2018-04-19', '3242.00', '24.00', '242.00', '0.00', '42.00', '0.00', 'dsf', 'complete', '', 'admin@gmail.com', '', '0.00', '0.00', '0.00', '2021-03-05', '2021', '03'),
 (7, '', '435', '', '', '', '', 'dfs', '', '', 'sf', 'dfsf', '2018-04-03', '432.00', '324.00', '324.00', '0.00', '234.00', '0.00', 'fsdf', 'complete', '', '', '', '33000.00', '568.00', '32432.00', '2021-02-17', '2021', '02'),
 (8, '', '435', '', '', '', '', 'dfsd', '', '', '#000000', 'fdgfd', '2018-04-10', '5.00', '5000.00', '0.00', '5000.00', '2000.00', '3000.00', 'dsfsf', 'QA', '', '', '', '3000.00', '0.00', '3000.00', '2021-02-24', '2021', '02'),
 (9, '', '453', '', '', '', '', 'fds', '', '', 'hg', 'ghfg', '2018-04-24', '66.00', '4324.00', '42.00', '0.00', '423.00', '0.00', 'fsdds', 'complete', '', '', '', '0.00', '0.00', '0.00', '2021-01-20', '', ''),
@@ -259,7 +259,9 @@ INSERT INTO `product` (`id`, `name`) VALUES
 (56, 'Sticker Cutting\r\n'),
 (57, 'Acrylic Work\r\n'),
 (58, 'Laser Engraving\r\n'),
-(59, 'UV Printing\r\n');
+(59, 'UV Printing\r\n'),
+(60, 'Photocopies'),
+(61, 'printout');
 
 -- --------------------------------------------------------
 
@@ -419,7 +421,9 @@ INSERT INTO `product_type` (`id`, `product_id`, `type_id`) VALUES
 (97, 56, 6),
 (98, 57, 6),
 (99, 58, 6),
-(100, 59, 6);
+(100, 59, 6),
+(101, 60, 6),
+(102, 61, 6);
 
 -- --------------------------------------------------------
 
@@ -538,7 +542,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `jobs`
 --
@@ -553,7 +557,7 @@ ALTER TABLE `jobs_type`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
@@ -563,7 +567,7 @@ ALTER TABLE `product_category`
 -- AUTO_INCREMENT for table `product_type`
 --
 ALTER TABLE `product_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 --
 -- AUTO_INCREMENT for table `signup`
 --

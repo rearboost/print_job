@@ -168,18 +168,6 @@
          }
     });
 
-    $.ajax({
-         url:"../controller/dispatch_controller.php",
-         method:"POST",
-         data:{view_note:view_id},
-         success:function(data){
-
-           $('#view_note').html(data);
-
-         }
-
-     });
-
   });
 
   </script>
@@ -327,7 +315,7 @@
       </div>
      </div>
   </div>
-  <div id="snackbar">Suceessfully Updated!</div>
+  <div id="snackbar"><p id="msg_view"></p></div>
  </div>
 
  <script>
@@ -380,6 +368,8 @@
 
  // Message success view
  function myformpay() {
+
+     var printId = $('#job_edit').val();
    
      var x = document.getElementById("snackbar");
      x.className = "show";
@@ -387,6 +377,7 @@
 
      
      //// Location refech
+     setTimeout(function(){window.open('../tables/invoice_print?id='+printId, '_blank'); }, 2500);
      setTimeout(function(){location.reload(); },2500);
  }
 
