@@ -303,15 +303,15 @@ $(document).ready(function(){
 
 });
 
-/////////////////calculate the budget ///////////////////
-// $("#budget").keyup(function(){
+///////////////calculate the budget ///////////////////
+$("#budget").keyup(function(){
 
-//   var budget =document.getElementById('budget').value;
+  var budget =document.getElementById('budget').value;
 
-//   $('#rest').val(budget);
-//   $('#discounted').val(budget);
+  $('#rest').val(budget);
+  $('#discounted').val(budget);
 
-// });
+});
 
 // Calulate Amount about  to the discount add
 $("#discount").keyup(function(){
