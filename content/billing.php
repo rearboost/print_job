@@ -9,7 +9,7 @@
 <head>
   <!-- head title and icon -->
   <link rel="shortcut icon" href="../icon/jobshop_logo.png" />
-  <title>Job Shop - Inbound Requests</title>
+  <title>Job Shop - Billing</title>
   <!-- header -->
   <?php include('../include/head.php'); ?>
 

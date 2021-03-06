@@ -154,18 +154,6 @@
          }
     });
 
-    $.ajax({
-         url:"../controller/production_controller.php",
-         method:"POST",
-         data:{view_note:view_id},
-         success:function(data){
-
-           $('#view_note').html(data);
-
-         }
-
-     });
-
   });
   </script>
 
@@ -253,7 +241,7 @@
       </div>
     </div>
   </div>
-  <div id="snackbar">Suceessfully Updated!</div>
+  <div id="snackbar"><p id="msg_view"></p></div>
 </div>
 
 <script>
@@ -273,7 +261,7 @@ function FormProduction() {
 
     // Message success call function
     myform1();
-
+    $('#msg_view').html(data);
     }
   });
 }

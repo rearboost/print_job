@@ -184,7 +184,7 @@ function CustomerInsert() {
     alert("Required field is empty.");  
   }else{
    $.ajax({
-     url:"../controller/customer_controller.php",
+     url:"../controller/custom_controller.php",
      method:"POST",
      data:{customer:customer,contact:contact,address:address,form_customer_submit:form_customer_submit},
      success:function(data){

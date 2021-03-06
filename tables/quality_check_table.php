@@ -126,10 +126,10 @@
    function myformadddispatch() {
        var x = document.getElementById("snackbar");
        x.className = "show";
-       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
 
        // Location refech
-       setTimeout(function(){location.reload(); },3100);
+       setTimeout(function(){location.reload(); },2100);
    }
 
    /////////////////Back To production /////////////////////
@@ -153,10 +153,10 @@
    function myformbackproduction() {
        var x = document.getElementById("snackbar");
        x.className = "show";
-       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
 
        // Location refech
-       setTimeout(function(){location.reload(); },3100);
+       setTimeout(function(){location.reload(); },2100);
    }
 
 
@@ -191,18 +191,6 @@
            $('#failed_reason_edit').val(data['failed_reason']);
          }
     });
-
-    $.ajax({
-         url:"../controller/dispatch_controller.php",
-         method:"POST",
-         data:{view_note:view_id},
-         success:function(data){
-
-           $('#view_note').html(data);
-
-         }
-
-     });
 
   });
   </script>
@@ -291,7 +279,7 @@
       </div>
     </div>
   </div>
-  <div id="snackbar">Suceessfully Updated!</div>
+  <div id="snackbar"><p id="msg_view"></p></div>
 </div>
 
 <script>
@@ -312,6 +300,7 @@ function FormQA() {
 
     // Message success call function
     myform1();
+    $('#msg_view').html(data);
 
     }
   });

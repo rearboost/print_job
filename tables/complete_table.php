@@ -143,18 +143,6 @@
          }
     });
 
-    $.ajax({
-         url:"../controller/complete_controller.php",
-         method:"POST",
-         data:{view_note:view_id},
-         success:function(data){
-
-           $('#view_note').html(data);
-
-         }
-
-     });
-
   });
   </script>
 

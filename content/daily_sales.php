@@ -55,12 +55,12 @@
           <label>Pick a month</label>
           <select class="form-control  form-control" name="month" id="month">
             <option selected="" disabled="">Select Year First</option>
-            <option value="01">January</option> <option value="02">February</option>
+            <!-- <option value="01">January</option> <option value="02">February</option>
             <option value="03">March</option> <option value="04">April</option>
             <option value="05">May</option> <option value="06">June</option>
             <option value="07">July</option> <option value="08">August</option>
             <option value="09">September</option> <option value="10">October</option>
-            <option value="11">November</option> <option value="12">December</option>
+            <option value="11">November</option> <option value="12">December</option> -->
           </select>
         </div>
         <div class="col-md-4">
@@ -132,6 +132,8 @@ $(document).ready(function(){
      var year = $('#year').val();
      var month = $(this).val();
 
+    $('#search_date').val('');
+
     if(year){
       $.ajax({
          url:"../tables/dailysales_table.php",
@@ -144,23 +146,43 @@ $(document).ready(function(){
       });
     }else{
       alert('Please select the year first');
-       $('#month').val('');
+      $('#month').val('');
     }
       
   });
 
  $('#year').on('change', function() {
      var year = $(this).val();
-      
+     var month = $('#month').val();
+
+     $('#search_date').val('');
+
       $.ajax({
          url:"../tables/dailysales_table.php",
          method:"POST",
-         data:{year:year},
+         data:{month:month,year:year},
          success:function(data)
          {
           $('#result').html(data);
          }
       });
+
+      
+
+      if(year){
+        
+        $.get(
+          "../functions/get_month.php",
+          {year:year},
+          function (data) { 
+            $('#month').html(data);
+          }
+        );
+           
+      }else{
+        $('#month').html('<option>Select Job Type First</option>');
+      }
+
   });
 
 });

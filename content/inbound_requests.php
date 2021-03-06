@@ -285,13 +285,14 @@ $(document).ready(function(){
 ///////////// get categories /////////////////////
   $("#item").on('change',function(){
     var item = $(this).val();
+    alert(item)
     if(item){
       
       $.get(
         "../functions/get_category.php",
         {item:item},
         function (data) { 
-          alert(item)
+          
           $('#category').html(data);
         }
       );
@@ -413,7 +414,7 @@ function FormInsert() {
      success:function(data){
 
      // Message success call function
-      myformorder();
+     myformorder();
      $('#msg_view').html(data);
 
      }

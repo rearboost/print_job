@@ -18,30 +18,32 @@
   include('../include/check.php');
   // Database Connection
   require '../include/config.php';
-  
 
-  if(isset($_POST["year"]) && !empty($_POST["year"]))
-  {
-    $year   =$_POST["year"];
-    $query = "SELECT dispatch_month AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_year='$year' GROUP BY column1 HAVING sales>0";
-  }
-  else if(isset($_POST["year"]) && ($_POST["month"]))
+  if(isset($_POST["year"]) && ($_POST["month"]))
   {
     $year    =$_POST["year"];
-    $month  =$_POST["month"];
-    $query = "SELECT dispatch_day AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_year='$year' AND dispatch_month='$month' GROUP BY column1 HAVING sales>0";     
+    $month   =$_POST["month"];
+    $query = "SELECT dispatch_day AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_year='$year' AND dispatch_month='$month' GROUP BY column1 HAVING sales>0";
+  }
+
+  else if(isset($_POST["year"]) && !empty($_POST["year"]))
+  {  
+    $year   =$_POST["year"];
+    $query = "SELECT dispatch_month AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_year='$year' GROUP BY column1 HAVING sales>0";   
   }
    
   else if(isset($_POST["query"]))
   {    
     $date   =$_POST["query"];
     $query = "SELECT dispatch_day AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs WHERE dispatch_day='$date' HAVING sales>0";
-
+  }
+  else if(empty($_POST["month"]) && empty($_POST["query"]))
+  {
+    $query = "SELECT dispatch_year AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs GROUP BY column1 HAVING sales>0";
   }
   else 
   {
     $query = "SELECT dispatch_year AS column1, SUM(ad_pay_amount + payment) AS sales FROM jobs GROUP BY column1 HAVING sales>0";
- 
   }
 
   $result = mysqli_query($conn ,$query);

@@ -270,7 +270,7 @@
         </div>
      </div>
     </div>
-     <div id="snackbar">Success! Update Data</div>
+     <div id="snackbar"><p id="msg_view"></p></div>
  </div>
 
 
@@ -321,7 +321,6 @@
 
  function Formedit() {
 
-
     var job_edit =document.getElementById('job_edit').value;
 
     var quantity_edit =document.getElementById('quantity_edit').value;
@@ -358,7 +357,7 @@
 
          // Message success call function
           myform1();
-
+          $('#msg_view').html(data);
          }
       });
   }

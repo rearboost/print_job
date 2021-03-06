@@ -233,7 +233,7 @@
         </div>
      </div>
   </div>
-  <div id="snackbar">Suceessfully Updated!</div>
+  <div id="snackbar"><p id="msg_view"></p></div>
 </div>
 
 <script>
@@ -253,6 +253,7 @@ function FormDesign() {
 
     // Message success call function
     myform1();
+    $('#msg_view').html(data);
 
     }
   });

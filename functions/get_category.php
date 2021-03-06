@@ -3,6 +3,7 @@
 	require '../include/config.php';
 
 	if(isset($_GET['item'])){	
+
 		$item_name = $_GET['item'];
 
 		$get_itemid = mysqli_query($conn, "SELECT id FROM product WHERE name='$item_name'");
@@ -14,11 +15,15 @@
 		$count = mysqli_num_rows($get_category);
 
 		if($count>0){
+			//echo $item_name;
 			while($row = mysqli_fetch_array($get_category)){
-				echo '<option value ="'.$row['category_name'].'" >'.$row['category_name'].'</option>';
+				//echo '<option value ="'.$row['category_name'].'" >'.$row['category_name'].'</option>';
+				echo '<option value ="'.$item_name.'" >'.$item_name.'</option>';
 			}
 		}else{
-			echo '<option>No products available</option>';
+			echo '<option value ="'.$item_id.'" >'.$item_id.'</option>';
+			// echo '<option>No products available</option>';
+		  
 		}
 		
 	}else{

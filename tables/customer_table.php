@@ -60,7 +60,7 @@
      <td>'.$row["address"].'</td>
      <td><button type="button"  id="'.$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModal" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px;">View</button></td>
 
-     <td style="width: 5%;"><a href="../controller/customer_controller?C_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td>';
+     <td style="width: 5%;"><a href="../controller/custom_controller?c_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td>';
     echo '</tr>';
 
     $i++;
@@ -97,7 +97,7 @@
     var view_id = $(this).attr("name");
 
     $.ajax({
-         url:"../controller/customer_controller.php",
+         url:"../controller/custom_controller.php",
          method:"POST",
          data:{view_id:view_id},
          success:function(data){
@@ -146,7 +146,7 @@
         </div>
      </div>
     </div>
-     <div id="snackbar">Success! Update Data</div>
+     <div id="snackbar"><p id="msg_view"></p></div>
  </div>
 
  <script>
@@ -173,13 +173,14 @@
   else {
 
        $.ajax({
-         url:"../controller/customer_controller.php",
+         url:"../controller/custom_controller.php",
          method:"POST",
          data:{customerid_edit:customerid_edit,customer_edit:customer_edit,contact_edit:contact_edit,address_edit:address_edit,form_customer_edit:form_customer_edit},
          success:function(data){
 
          // Message success call function
           myform1();
+          $('#msg_view').html(data);
 
          }
       });

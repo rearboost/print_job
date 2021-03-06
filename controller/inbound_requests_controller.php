@@ -18,6 +18,10 @@
         {
             mysqli_stmt_bind_param($stmt,"s",$id);
             $result =  mysqli_stmt_execute($stmt);
+            if($result){
+              header("location:../content/inbound_requests.php"); // redirects to all records page
+              exit;
+            }
         }
     }
     // Logic Delete the  Inbound Requests  use id end
@@ -103,7 +107,9 @@
     $data   = mysqli_fetch_assoc($sqli);
     $max_no = $data['max_no']+1; 
 
-    $duration = date('Ymdhis');
+    $today = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
+    $duration = $today->format('Ymdhis');
+
     $job_no   = $duration . $max_no;
 
     $status ="request";
