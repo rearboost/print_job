@@ -45,6 +45,7 @@
           </div>
           <div class="modal-body" style="background-color: #d6e1e9;">
             <form id="order_submit">
+                <input type="hidden" id="myitemjson" name="myitemjson"/>
                 <div class="col-sm-12" style="display: inline-flex;">
                   <div class="col-sm-4" style="float: right;">
                     <label>Customer</label>
@@ -134,7 +135,7 @@
                     <input type="color" name="colour1" id="colour1" style="margin-bottom: 10px; width: 100%; height: 45%;"/>
                   </div>
                   <div class="col-sm-2">
-                    <button type="button" id="color_btn" name="color_btn" class="btn btn-primary" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 35px; margin-left: 1.5%;">Add</button>
+                    <button type="button" id="color_btn" name="color_btn" class="btn btn-primary" onclick="getValue()" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 35px; margin-left: 1.5%;">Add</button>
                   </div>
                   <div class="col-sm-4">
                     <br>
@@ -285,14 +286,13 @@ $(document).ready(function(){
 ///////////// get categories /////////////////////
   $("#item").on('change',function(){
     var item = $(this).val();
-    alert(item)
+   // alert(item)
     if(item){
       
       $.get(
         "../functions/get_category.php",
         {item:item},
         function (data) { 
-          
           $('#category').html(data);
         }
       );
@@ -376,6 +376,9 @@ function form_reset(){
 
 function FormInsert() {
 
+  //Call to set the color arry 
+  setArry();
+
   var cust_id =document.getElementById('customer_id').value;
   var customer =document.getElementById('customer_name').value;
   var contact =document.getElementById('customer_contact').value;
@@ -431,6 +434,28 @@ function myformorder() {
    // Location refech
    setTimeout(function(){location.reload(); },2500);
 }
+
+//  Insert Into the textarea 
+ function getValue(){
+
+      var x = document.getElementById("colour1").value;
+      var space =' , ';
+      var textarea = document.getElementById('color');
+      textarea.value = textarea.value +x +'\n';
+  
+  }
+ 
+ // Pushed to the arry multiple color codes 
+  function setArry(){
+    var array=[];
+    var lines = $('#color').val().split('\n');
+    $.each(lines, function(i){
+      array.push({no:i,code:this});
+    });
+    array.splice(-1,1)
+    console.log(JSON.stringify(array, null, 1));
+    $('#myitemjson').val(JSON.stringify(array));
+  }
 
 </script>
 <!-- end -->
