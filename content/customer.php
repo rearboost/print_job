@@ -31,7 +31,7 @@
       
       <div class="row">
       <div class="col-md-10">
-      <input type="text" name="search_text" id="search_text" placeholder="Search by Customer name " class="form-control  form-control-sm" style="width: 40%;"/>
+     <!--  <input type="text" name="search_text" id="search_text" placeholder="Search by Customer name " class="form-control  form-control-sm" style="width: 40%;"/> -->
       <br>
       </div>
       <div class="col-md-2">

@@ -42,10 +42,10 @@
 <!--  <script src="jquery.tabledit.min.js"></script> -->
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <?php include('../include/head.php'); ?>
-  <table id="editable_table" class="table table table-striped">
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
    <thead>
     <tr>
-     <th>Job ID</th>
+     <th>#</th>
      <th>Job No</th>
      <th>Customer</th>
      <th>Channel</th>
@@ -270,4 +270,7 @@ function FormDesign() {
      setTimeout(function(){location.reload(); },2500);
  }
 
+  $(document).ready(function() {
+      $('#example').DataTable();
+  } );
 </script>

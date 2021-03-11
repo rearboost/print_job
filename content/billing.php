@@ -28,12 +28,9 @@
         <li class="breadcrumb-item active">Billing</li>
       </ol>
       <div class="row">
-      <div class="col-md-8">
-      <input type="text" name="search_text" id="search_text" placeholder="Search by Job No" class="form-control  form-control-sm" style="width: 60%; height: 40px;"/>
-      </div>
-      <div class="col-md-4">
-        <input type="date" name="bill_date" id="bill_date" class="form-control">
-      </div>
+      <!-- <div class="col-md-4">
+        <input type="date" name="bill_date" id="bill_date" class="form-control-sm">
+      </div> -->
       </div>
 
       <br>
@@ -110,7 +107,7 @@ $(document).ready(function(){
          
     
   });
-
+$('#example').DataTable();
 
 });
 

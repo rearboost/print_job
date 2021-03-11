@@ -28,7 +28,7 @@
         <li class="breadcrumb-item active">Rejected Jobs</li>
       </ol>
 
-      <input type="text" name="search_text" id="search_text" placeholder="Search by Job ID " class="form-control  form-control-sm" style="width: 25%;"/>
+     <!--  <input type="text" name="search_text" id="search_text" placeholder="Search by Job ID " class="form-control  form-control-sm" style="width: 25%;"/> -->
       <br>
        <!-- Rejected  table view -->
       <div id="result">

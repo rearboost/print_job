@@ -29,10 +29,10 @@
         <li class="breadcrumb-item active">Daily Sales</li>
       </ol>
 
-      <div class="row">
+      <div class="row" style="margin-left: 2px; margin-right: 10px;">
         <div class="col-md-4">
           <label>Pick a year</label>
-          <select class="form-control  form-control" name="year" id="year">
+          <select class="form-control" name="year" id="year">
             <option selected="" disabled="">Select Year</option>
             <?php
                           
@@ -53,24 +53,17 @@
         </div>
         <div class="col-md-4">
           <label>Pick a month</label>
-          <select class="form-control  form-control" name="month" id="month">
+          <select class="form-control" name="month" id="month">
             <option selected="" disabled="">Select Year First</option>
-            <!-- <option value="01">January</option> <option value="02">February</option>
-            <option value="03">March</option> <option value="04">April</option>
-            <option value="05">May</option> <option value="06">June</option>
-            <option value="07">July</option> <option value="08">August</option>
-            <option value="09">September</option> <option value="10">October</option>
-            <option value="11">November</option> <option value="12">December</option> -->
           </select>
         </div>
         <div class="col-md-4">
           <label>Pick a date</label>
-          <input type="date" name="search_date" id="search_date" class="form-control form-control" />
+          <input type="date" name="search_date" id="search_date" class="form-control"/>
         </div>
       </div>
   
-      
-      <br>
+      <br><hr><br>
        <!-- Dispatch  table view -->
       <div id="result">
 

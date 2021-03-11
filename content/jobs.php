@@ -29,12 +29,13 @@
       </ol>
       <div class="row">
       <div class="col-md-10">
-      <input type="text" name="search_text" id="search_text" placeholder="Search by Job Number " class="form-control  form-control-sm" style="width: 40%;"/>
+      <!-- <input type="text" name="search_text" id="search_text" placeholder="Search by Job Number " class="form-control  form-control-sm" style="width: 40%;"/> -->
       </div>
       <!-- <div class="col-md-2">
         <button type="button" id="" name="" class="btn btn-primary btn-sm submit_data" data-toggle="modal" data-target="#myModal1" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px; float:right" ><font color="green"><b>+ </b></font>New Job</button>
       </div> -->
       </div>
+      <br>
   <div id="result"></div>
       
 

@@ -52,7 +52,7 @@
 <!--  <script src="jquery.tabledit.min.js"></script> -->
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <?php include('../include/head.php'); ?>
-  <table id="editable_table" class="table table table-striped">
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
    <thead>
     <tr>
      <th>Date</th>
@@ -142,7 +142,7 @@
 
 <!-- Edid From  Past medical history Modal -->
  <div id="myModal" class="modal fade">
-    <div class="modal-dialog" style="max-width: 400px;">
+    <div class="modal-dialog" style="max-width: 350px;">
      <div class="modal-content" style="height : auto;">
         <div class="modal-header" style="background-color: #507183;">
           <!-- <span style="font-size: 23px;"><b style="color: white;letter-spacing: 1.3px;">Invoice</b></span> -->
@@ -157,38 +157,93 @@
          <form method="post" id="pmh_form_edit">
           <div class="col-sm-12">
            <div class="row">
-             <label>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><span style="display: inline-block; margin-left: 1%;"><div id="dispatch_day"></div></span>
+             <div class="col-sm-4" style="margin-left: 15px;">
+               <label>Date </label>
+             </div>
+             <div class="col-sm-6">
+              <span style="display: inline-block; margin-left: 1%;"><div id="dispatch_day"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>Job # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><span style="display: inline-block; margin-left: 1%;"><div id="job_no"></div></span>
+             <div class="col-sm-4" style="margin-left: 15px;">
+               <label>Job # </label>
+             </div>
+             <div class="col-sm-6">
+               <span style="display: inline-block; margin-left: 1%;"><div id="job_no"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>Customer &nbsp;&nbsp;&nbsp;:</label><span style="display: inline-block; margin-left: 1%;"><div id="customer"></div></span>
+             <div class="col-sm-4" style="margin-left: 15px;">
+               <label>Customer </label>
+             </div>
+             <div class="col-sm-6">
+               <span style="display: inline-block; margin-left: 1%;"><div id="customer"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>Description :</label><span style="display: inline-block; margin-left: 1%;"><div id="product"></div></span>
+             <div class="col-sm-4" style="margin-left: 15px;">
+               <label>Description </label>
+             </div>
+             <div class="col-sm-6">
+               <span style="display: inline-block; margin-left: 1%;"><div id="product"></div></span>
+             </div>
            </div>
            <hr>
            <div class="row">
-             <label>TOTAL AMOUNT :</label><span style="display: inline-block; margin-left: 1%;"><div id="budget"></div></span>
+             <div class="col-sm-6" style="margin-left: 15px;">
+               <label>TOTAL AMOUNT </label>
+             </div>
+             <div class="col-sm-4" style="text-align: right;">
+              <span style="display: inline-block; margin-left: 1%;"><div id="budget"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>DISCOUNT(%) :</label><span style="display: inline-block; margin-left: 1%;"><div id="discount"></div></span>
+             <div class="col-sm-6" style="margin-left: 15px;">
+               <label>DISCOUNT(%) </label>
+             </div>
+             <div class="col-sm-4" style="text-align: right;">
+               <span style="display: inline-block; margin-left: 1%;"><div id="discount"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>NET AMOUNT :</label><span style="display: inline-block; margin-left: 1%;"><div id="discounted"></div></span>
+             <div class="col-sm-6" style="margin-left: 15px;">
+               <label>NET AMOUNT  </label>
+             </div>
+             <div class="col-sm-4" style="text-align: right;">
+               <span style="display: inline-block; margin-left: 1%;"><div id="ad_pay_amount"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>ADVANCE :</label><span style="display: inline-block; margin-left: 1%;"><div id="ad_pay_amount"></div></span>
+             <div class="col-sm-6" style="margin-left: 15px;">
+               <label>ADVANCE </label>
+             </div>
+             <div class="col-sm-4" style="text-align: right;">
+               <span style="display: inline-block; margin-left: 1%;"><div id="discounted"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>REST :</label><span style="display: inline-block; margin-left: 1%;"><div id="payment"></div></span>
+             <div class="col-sm-6" style="margin-left: 15px;">
+               <label>REST  </label>
+             </div>
+             <div class="col-sm-4" style="text-align: right;">
+              <span style="display: inline-block; margin-left: 1%;"><div id="payment"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>CASH :</label><span style="display: inline-block; margin-left: 1%;"><div id="cash"></div></span>
+             <div class="col-sm-6" style="margin-left: 15px;">
+               <label>CASH  </label>
+             </div>
+             <div class="col-sm-4" style="text-align: right;">
+               <span style="display: inline-block; margin-left: 1%;"><div id="cash"></div></span>
+             </div>
            </div>
            <div class="row">
-             <label>CHANGE :</label><span style="display: inline-block; margin-left: 1%;"><div id="change_amt"></div></span>
+             <div class="col-sm-6" style="margin-left: 15px;">
+               <label>CHANGE  </label>
+             </div>
+             <div class="col-sm-4" style="text-align: right;">
+               <span style="display: inline-block; margin-left: 1%;"><div id="change_amt"></div></span>
+             </div>
            </div>
           </div>
          </form>
@@ -196,4 +251,10 @@
      </div>
     </div>
  </div>
+
+   <script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+  </script>
 

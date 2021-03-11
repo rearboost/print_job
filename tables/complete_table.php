@@ -21,15 +21,8 @@
 
        $view_status ="complete";
 
-      if(isset($_POST["query"]))
-      {
-         $search =$_POST["query"];
-         $query ="SELECT * FROM  jobs  WHERE state='$view_status' AND id LIKE '%".$search."%'";
-      }
-      else
-      {
-         $query = "SELECT * FROM jobs WHERE state='$view_status'";
-      }
+       $query = "SELECT * FROM jobs WHERE state='$view_status'";
+
       $result = mysqli_query($conn ,$query);
 
       if(mysqli_num_rows($result)>0)
@@ -40,10 +33,10 @@
     <!--  <script src="jquery.tabledit.min.js"></script> -->
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <?php include('../include/head.php'); ?>
-      <table id="editable_table" class="table table table-striped">
+      <table id="example" class="table table-striped table-bordered" style="width:100%">
        <thead>
         <tr>
-         <th>Job ID</th>
+         <th>#</th>
          <th>Job No</th>
          <th>Customer</th>
          <th>Channel</th>
@@ -285,3 +278,10 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  $(document).ready(function() {
+      $('#example').DataTable();
+  } );
+</script>

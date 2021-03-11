@@ -38,7 +38,7 @@
  <div class="tablealign">
 <!--  <script src="jquery.tabledit.min.js"></script> -->
  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <table id="editable_table" class="table table table-striped">
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
    <thead>
     <tr>
      <th>CUSTOMER</th>
@@ -197,5 +197,9 @@
      // Location refech
      setTimeout(function(){location.reload(); },2500);
  }
- </script>
+
+  $(document).ready(function() {
+      $('#example').DataTable();
+  } );
+</script>
  

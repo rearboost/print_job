@@ -29,7 +29,7 @@
       </ol>
       <div class="row">
       <div class="col-md-10">
-      <input type="text" name="search_text" id="search_text" placeholder="Search by Job ID " class="form-control  form-control-sm" style="width: 40%;"/>
+      <!-- <input type="text" name="search_text" id="search_text" placeholder="Search by Job ID " class="form-control  form-control-sm" style="width: 40%;"/> -->
       </div>
       <div class="col-md-2">
         <button type="button" id="" name="" class="btn btn-primary btn-sm submit_data" data-toggle="modal" data-target="#myModal1" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px; float:right" ><font color="green"><b>+ </b></font>New Job</button>
@@ -393,6 +393,7 @@ function FormInsert() {
   var material =document.getElementById('material').value;
   var size =document.getElementById('size').value;
   var bind =document.getElementById('bind').value;
+  var color =document.getElementById('color').value;
 
   var budget =document.getElementById('budget').value;
   var discount =document.getElementById('discount').value;
@@ -413,7 +414,7 @@ function FormInsert() {
    $.ajax({
      url:"../controller/inbound_requests_controller.php",
      method:"POST",
-     data:{cust_id:cust_id,customer:customer,contact:contact,address:address,channel:channel,type:type,item:item,category:category,qty:qty,material:material,size:size,bind:bind,budget:budget,discount:discount,discounted:discounted,ad_pay_amount:ad_pay_amount,rest:rest,date:date,admin_description:admin_description,form_btn_submit:form_btn_submit},
+     data:{cust_id:cust_id,customer:customer,contact:contact,address:address,channel:channel,type:type,item:item,category:category,qty:qty,material:material,size:size,bind:bind,color:color,budget:budget,discount:discount,discounted:discounted,ad_pay_amount:ad_pay_amount,rest:rest,date:date,admin_description:admin_description,form_btn_submit:form_btn_submit},
      success:function(data){
 
      // Message success call function

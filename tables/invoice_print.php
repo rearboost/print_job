@@ -35,16 +35,37 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label style="color: black; margin-bottom: 0;"><b>Description</b></label><span style="color: black;"> : <?php echo $data['product'] ?> </span><br>
-                  <label style="color: black; margin-bottom: 0;"><b>Total Amount</b></label><span style="color: black;"> : <?php echo $data['budget'] ?> </span><br>
-                  <label style="color: black; margin-bottom: 0;"><b>Discount</b></label><span style="color: black;"> : <?php echo $data['discount'] ?> </span><br>
-                  <label style="color: black; margin-bottom: 0;"><b>Net Amount</b></label><span style="color: black;"> : <?php echo $data['discounted'] ?> </span><br>
-                  <label style="color: black; margin-bottom: 0;"><b>Advance</b></label><span style="color: black;"> : <?php echo $data['ad_pay_amount'] ?> </span><br>
-                  <label style="color: black; margin-bottom: 0;"><b>Rest</b></label><span style="color: black;"> : <?php echo $data['payment'] ?> </span><br>
+
+                  <label style="color: black; margin-bottom: 0;"><b>Total Amount</b></label><span style="color: black;"> : <?php 
+                                          $budget = $data['budget'];
+                                          echo number_format($budget,2,".",",") ?> 
+                  </span><br>
+
+                  <label style="color: black; margin-bottom: 0;"><b>Discount</b></label><span style="color: black;"> : <?php 
+                                          $discount = $data['discount'];
+                                          echo number_format($discount,2,".",",") ?> </span><br>
+
+                  <label style="color: black; margin-bottom: 0;"><b>Net Amount</b></label><span style="color: black;"> : <?php 
+                                          $discounted = $data['discounted'];
+                                          echo number_format($discounted,2,".",",") ?> </span><br>
+
+                  <label style="color: black; margin-bottom: 0;"><b>Advance</b></label><span style="color: black;"> : <?php 
+                                      $ad_pay_amount = $data['ad_pay_amount'];
+                                      echo number_format($ad_pay_amount,2,".",",") ?> </span><br>
+
+                  <label style="color: black; margin-bottom: 0;"><b>Payment</b></label><span style="color: black;"> : <?php 
+                                      $payment = $data['payment'];
+                                      echo number_format($payment,2,".",",") ?> </span><br>
 
                   <span style="color: black;">--------------------------------------------------</span><br>
 
-                  <label style="color: black; margin-bottom: 0;"><b>Cash</b></label><span style="color: black;"> : <?php echo $data['cash'] ?> </span><br>
-                  <label style="color: black; margin-bottom: 0;"><b>CHANGE</b></label><span style="color: black;"> : <?php echo $data['change_amt'] ?> </span><br>
+                  <label style="color: black; margin-bottom: 0;"><b>CASH</b></label><span style="color: black;"> : <?php 
+                                      $cash = $data['cash'];
+                                      echo number_format($cash,2,".",",") ?> </span><br>
+
+                  <label style="color: black; margin-bottom: 0;"><b>CHANGE</b></label><span style="color: black;"> : <?php 
+                                      $change_amt = $data['change_amt'];
+                                      echo number_format($change_amt,2,".",",") ?> </span><br>
                 </div>
               </div> 
             </div> 
@@ -55,7 +76,10 @@
   </div>
 
   <script>
-    $(document).ready(function(){
-        setTimeout(function(){ window.print(); }, 2000);
-    });
+  ////////////////  Print  ///////////////////////
+  $(document).ready(function(){
+      setTimeout(function(){ window.print(); }, 2000);
+     // setTimeout(window.close, 3000);
+  });
+  ///////////////////////////////////////////
   </script>

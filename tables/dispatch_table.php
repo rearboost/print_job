@@ -42,10 +42,10 @@
     <!--  <script src="jquery.tabledit.min.js"></script> -->
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <?php include('../include/head.php'); ?>
-      <table id="editable_table" class="table table table-striped">
+      <table id="example" class="table table-striped table-bordered" style="width:100%">
        <thead>
         <tr>
-        <th>Job ID</th>
+         <th>#</th>
          <th>Job No</th>
          <th>Customer</th>
          <th>Item</th>
@@ -288,7 +288,6 @@
               </div>
             </div>
             
-
             <div class="col-sm-12" style="display: inline-flex; margin-top: 20px;">
              <div class="col-sm-3">
                <label>Cash</label>
@@ -296,11 +295,11 @@
              </div>
              <div class="col-sm-3">
                <label>Change</label>
-                <input type="text" class="form-control" name="change_edit" id="change_edit" style="margin-bottom: 10px;" required>
+                <input type="text" class="form-control" name="change_edit" id="change_edit" style="margin-bottom: 10px;" required disabled="">
              </div>
              <div class="col-sm-3">
                <label>Payment</label>
-                <input type="text" class="form-control" name="payment_edit" id="payment_edit" style="margin-bottom: 10px;" required>
+                <input type="text" class="form-control" name="payment_edit" id="payment_edit" style="margin-bottom: 10px;" required disabled="">
              </div>
              <div class="col-sm-3">
                <label>Dispatch Date</label>
@@ -327,7 +326,7 @@
 
     var change_edit =parseFloat(cash_edit)- parseFloat(rest_edit);
 
-    $('#change_edit').val(change_edit);
+    $('#change_edit').val(change_edit.toFixed(2));
     $('#payment_edit').val(rest_edit);
 
   });
@@ -338,6 +337,7 @@
 
     var job_edit =document.getElementById('job_edit').value;
 
+    var rest_edit =document.getElementById('rest_edit').value;
     var cash_edit =document.getElementById('cash_edit').value;
     var change_edit =document.getElementById('change_edit').value;
     var payment_edit =document.getElementById('payment_edit').value;
@@ -354,7 +354,7 @@
        $.ajax({
          url:"../controller/dispatch_controller.php",
          method:"POST",
-         data:{job_edit:job_edit,cash_edit:cash_edit,change_edit:change_edit,payment_edit:payment_edit,dispatch_day_edit:dispatch_day_edit,form_bill:form_bill},
+         data:{job_edit:job_edit,rest_edit:rest_edit,cash_edit:cash_edit,change_edit:change_edit,payment_edit:payment_edit,dispatch_day_edit:dispatch_day_edit,form_bill:form_bill},
          success:function(data){
 
          // Message success call function
@@ -381,4 +381,7 @@
      setTimeout(function(){location.reload(); },2500);
  }
 
+  $(document).ready(function() {
+      $('#example').DataTable();
+  } );
 </script>

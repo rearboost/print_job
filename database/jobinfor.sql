@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2021 at 07:40 PM
+-- Generation Time: Mar 10, 2021 at 10:19 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.30
 
@@ -71,7 +71,11 @@ INSERT INTO `customer` (`id`, `customer_name`, `contact`, `address`) VALUES
 (1, 'Amali senadheera', '071 7894578', 'No:01, kalutara north, kalutara'),
 (2, 'Rashini Amanda', '071 4789789', 'Panadura'),
 (3, 'hasitha senanayaka', '071 7894568', 'No:01, neboda, kalutara'),
-(4, 'Malinda perera', '071 4789456', 'No.43/D/4, 3rd Lane, Galwarusa, Korathota, Kaduwela.');
+(4, 'Malinda perera', '071 4789456', 'No.43/D/4, 3rd Lane, Galwarusa, Korathota, Kaduwela.'),
+(5, 'ABCD ', '0117894561', 'No:20, miriswatta, gampaha'),
+(7, 'M.G peraera', '078 4568527', 'Kuruwita, rathnapura'),
+(8, 'Rajitha Nuwan', '078 4561478', 'Horana, Kalutara'),
+(9, 'Kumudu Prasangi', '071 4562583', 'Ahangama, Galle');
 
 -- --------------------------------------------------------
 
@@ -110,7 +114,7 @@ CREATE TABLE `jobs` (
   `material` varchar(64) NOT NULL,
   `size` varchar(50) NOT NULL,
   `bind` varchar(50) NOT NULL,
-  `colour` varchar(20) NOT NULL,
+  `colour` text NOT NULL,
   `user_description` varchar(250) NOT NULL,
   `date` date NOT NULL,
   `quantity` decimal(10,2) NOT NULL,
@@ -142,25 +146,21 @@ INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`
 (7, '', '435', '', '', '', '', 'dfs', '', '', 'sf', 'dfsf', '2018-04-03', '432.00', '324.00', '324.00', '0.00', '234.00', '0.00', 'fsdf', 'complete', '', '', '', '33000.00', '568.00', '32432.00', '2021-02-17', '2021', '02'),
 (8, '', '435', '', '', '', '', 'dfsd', '', '', '#000000', 'fdgfd', '2018-04-10', '5.00', '5000.00', '0.00', '5000.00', '2000.00', '3000.00', 'dsfsf', 'QA', '', '', '', '3000.00', '0.00', '3000.00', '2021-02-24', '2021', '02'),
 (9, '', '453', '', '', '', '', 'fds', '', '', 'hg', 'ghfg', '2018-04-24', '66.00', '4324.00', '42.00', '0.00', '423.00', '0.00', 'fsdds', 'complete', '', '', '', '0.00', '0.00', '0.00', '2021-01-20', '', ''),
-(10, '', '564', '', '', '', '', 'dsfsd', '', '', '23', 'dasd', '2018-04-23', '1.00', '1250.00', '0.00', '1250.00', '250.00', '1000.00', '34234', 'dispatch', '', '', '', '1000.00', '0.00', '1000.00', '2021-02-24', '2021', '02'),
-(11, '', '546', '', '', '', '', 'gfdg', '', '', '#000000', 'rtert', '2018-04-24', '5.00', '7500.00', '2.00', '7350.00', '0.00', '7350.00', 'dfg', 'dispatch', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(10, '', '564', '', '', '', '', 'dsfsd', '', '', '23', 'dasd', '2018-04-23', '1.00', '1250.00', '0.00', '1250.00', '250.00', '0.00', '34234', 'dispatch', '', '', '', '1000.00', '0.00', '1000.00', '2021-02-24', '2021', '02'),
+(11, '', '546', '', '', '', '', 'gfdg', '', '', '#000000', 'rtert', '2018-04-24', '5.00', '7500.00', '0.00', '7350.00', '150.00', '7350.00', 'dfg', 'dispatch', '', '', '', '0.00', '0.00', '7350.00', '2020-08-30', '2020', '08'),
 (12, '', '234', '', '', '', '', 'sdfs', '', '', '#2048f6', 'fdgdg', '2018-04-23', '3423.00', '11.96', '12.00', '0.00', '10.00', '0.00', 'tert', 'complete', '', '', '', '0.00', '0.00', '34.00', '2021-01-20', '', ''),
-(13, '', '0', '', '', '', '', 'Stainless Steel', '', '', '#000000', 'This notice by production', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'production', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (14, '', '0', '', '', '', '', '', '', '', '#e00b0b', 'This notice by designer.', '0000-00-00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'design', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (15, '', '0', '', '', '', '', 'Aluminium', '', '', '#000000', '', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 'Immediate', 'production', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (16, '20210203124503', 'Senanayaka', 'EXP', 'Design', 'xxx', 'xxx', 'Stainless Steels', 'xxx', 'Perfect', '#000000', '', '2018-04-30', '2.00', '5000.00', '5.00', '4750.00', '2500.00', '2250.00', 'Immediate', 'design', 'cashier', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(17, '', '0', '', '', '', '', 'Stainless Steel', '', '', '#000000', '', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'reject', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(18, '', '0', '', '', '', '', '', '', '', '#000000', '', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'request', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(19, '', 'Amal perera', '', '', '', '', 'Stainless Steel', '', '', '#000000', 'zdasd', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'request', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (20, '', 'amal peiris', '', '', '', '', 'Stainless Steel', '', '', '#000000', 'zdasd\\nThis notice by QA', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'QA', '', '', 'Not Quality.', '0.00', '0.00', '0.00', '', '', ''),
-(21, '', '0', '', '', '', '', 'Stainless Steel', '', '', '#000000', 'zdasd', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'request', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(22, '', 'Hasitha', '', '', '', '', 'Stainless Steel', '', '', '#000000', '232', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'request', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(23, '', 'Hasitha', '', '', '', '', 'Plastic', '', '', '#000000', 'asda', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'request', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (24, '20210226020334am24', 'Rashini Amanda', 'EXP', 'Digital printing', 'Business card', 'Business package', 'mat card', 'small', 'None', 'red', '', '2021-02-25', '100.00', '10000.00', '2.00', '9800.00', '5000.00', '4800.00', 'Printed card with design.', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (25, '20210226021306am25', 'Kavishka prabath', 'DIR', 'Design', 'Logo design', 'Simple Package', '', 'Medium', 'None', 'red', '', '2021-02-25', '1.00', '2500.00', '0.00', '2500.00', '1000.00', '1500.00', 'Design with source file.', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(26, '20210226021633am26', 'Amali senadheera', 'EXP', 'Design', 'Business card', 'Business package', 'shine card', 'small', 'None', 'red', '', '2021-02-25', '150.00', '15000.00', '1.50', '14775.00', '6000.00', '8775.00', 'With design', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(26, '20210226021633am26', 'Amali senadheera', 'EXP', 'Design', 'Business card', 'Business package', 'shine card', 'small', 'None', '#ffffff', '', '2021-02-25', '150.00', '15000.00', '1.50', '14775.00', '6000.00', '8775.00', 'With design', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
 (27, '2021030111414427', 'hasitha senanayaka', 'EXP', 'Offset Printing', 'Logo design', 'Simple Package', '', '', 'None', 'red', '', '2021-03-01', '100.00', '10000.00', '2.50', '9750.00', '4000.00', '5750.00', 'fgfdshhgf', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(28, '2021030302101528', 'Malinda perera', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'small', 'None', 'red', '', '2021-03-02', '100.00', '7000.00', '0.00', '7000.00', '2000.00', '5000.00', 'with design', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '');
+(28, '2021030302101528', 'Malinda perera', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'small', 'None', 'red', '', '2021-03-02', '100.00', '7000.00', '0.00', '7000.00', '2000.00', '5000.00', 'with design', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(30, '2021030501382529', 'M.G peraera', 'EXP', 'Others', 'Photocopies', 'No products available', '', '', 'None', 'red', '', '2021-03-05', '150.00', '3750.00', '0.00', '3750.00', '1500.00', '2250.00', '5 sets', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(31, '2021030808190631', 'Rajitha Nuwan', 'DIR', 'Digital printing', 'Banner\n', '', 'Board', 'banner', 'None', '#000000\n#d50707\n#fff', '', '2021-03-08', '1.00', '6500.00', '0.00', '6500.00', '3000.00', '3500.00', 'White font, black border and red color background with design.', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
+(32, '2021031001172532', 'Kumudu Prasangi', 'DIR', 'Design', 'Broucher', 'Half fold', '', 'Medium', 'None', '#ffffff\n#b50303\n#000', '', '2021-03-09', '1.00', '3500.00', '3.00', '3395.00', '1500.00', '1895.00', 'Design only', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -204,62 +204,62 @@ INSERT INTO `product` (`id`, `name`) VALUES
 (1, 'Logo Design'),
 (2, 'Business Card'),
 (3, 'Flyer'),
-(4, 'Broucher\r\n'),
-(5, 'Ticket\r\n'),
-(6, 'Poster\r\n'),
-(7, 'Bookmark\r\n'),
-(8, 'Greeting Card\r\n'),
-(9, 'Menu Card\r\n'),
-(10, 'Letter head\r\n'),
-(11, 'Envelope\r\n'),
-(12, 'ID Card\r\n'),
-(13, 'Key Tag\r\n'),
+(4, 'Broucher'),
+(5, 'Ticket'),
+(6, 'Poster'),
+(7, 'Bookmark'),
+(8, 'Greeting Card'),
+(9, 'Menu Card'),
+(10, 'Letter head'),
+(11, 'Envelope'),
+(12, 'ID Card'),
+(13, 'Key Tag'),
 (14, 'Magazine'),
-(15, 'Invoice\r\n'),
-(16, 'Notebook\r\n'),
-(17, 'Calendar\r\n'),
-(18, 'Company Profile\r\n'),
-(19, 'Annual Report\r\n'),
-(20, 'Wallpaper\r\n'),
-(21, 'Backdrop\r\n'),
-(22, 'Packaging\r\n'),
-(23, 'Label\r\n'),
-(24, 'Facebook post\r\n'),
-(25, 'Youtube thumbnail\r\n'),
-(26, 'E-Flyer\r\n'),
-(27, 'Recipet\r\n'),
-(28, 'Bill book\r\n'),
-(29, 'Facebook Maintain\r\n'),
-(30, 'A - Stand\r\n'),
-(31, 'Banner\r\n'),
-(32, 'Billboard\r\n'),
-(33, 'Board sign\r\n'),
-(34, 'Canvas Print\r\n'),
-(35, 'Light board\r\n'),
-(36, 'Magnet\r\n'),
-(37, 'Name board\r\n'),
-(38, 'Product Lable\r\n'),
-(39, 'Pull - Up Banner\r\n'),
-(40, 'Safety Sign\r\n'),
-(41, 'Sticker\r\n'),
-(42, 'Vehicle Branding\r\n'),
-(43, 'X - Banner\r\n'),
-(44, 'CD Covers\r\n\r\n'),
-(45, 'Tags\r\n'),
-(46, 'Mug\r\n'),
-(47, 'Bottle\r\n'),
-(48, 'T - Shirt\r\n'),
-(49, 'Glass\r\n'),
-(50, 'Souvenier\r\n'),
-(51, 'Pen\r\n'),
-(52, 'Pencil\r\n'),
-(53, 'Wooden Item\r\n'),
-(54, 'Magic Pillow\r\n'),
-(55, 'Lanyard\r\n'),
-(56, 'Sticker Cutting\r\n'),
-(57, 'Acrylic Work\r\n'),
-(58, 'Laser Engraving\r\n'),
-(59, 'UV Printing\r\n'),
+(15, 'Invoice'),
+(16, 'Notebook'),
+(17, 'Calendar'),
+(18, 'Company Profile'),
+(19, 'Annual Report'),
+(20, 'Wallpaper'),
+(21, 'Backdrop'),
+(22, 'Packaging'),
+(23, 'Label'),
+(24, 'Facebook post'),
+(25, 'Youtube thumbnail'),
+(26, 'E-Flyer'),
+(27, 'Recipet'),
+(28, 'Bill book'),
+(29, 'Facebook Maintain'),
+(30, 'A - Stand'),
+(31, 'Banner'),
+(32, 'Billboard'),
+(33, 'Board sign'),
+(34, 'Canvas Print'),
+(35, 'Light board'),
+(36, 'Magnet'),
+(37, 'Name board'),
+(38, 'Product Lable'),
+(39, 'Pull - Up Banner'),
+(40, 'Safety Sign'),
+(41, 'Sticker'),
+(42, 'Vehicle Branding'),
+(43, 'X - Banner'),
+(44, 'CD Covers\r\n'),
+(45, 'Tags'),
+(46, 'Mug'),
+(47, 'Bottle'),
+(48, 'T - Shirt'),
+(49, 'Glass'),
+(50, 'Souvenier'),
+(51, 'Pen'),
+(52, 'Pencil'),
+(53, 'Wooden Item'),
+(54, 'Magic Pillow'),
+(55, 'Lanyard'),
+(56, 'Sticker Cutting'),
+(57, 'Acrylic Work'),
+(58, 'Laser Engraving'),
+(59, 'UV Printing'),
 (60, 'Photocopies'),
 (61, 'printout');
 
@@ -542,12 +542,12 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `jobs_type`
 --

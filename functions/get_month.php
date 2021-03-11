@@ -9,7 +9,7 @@
 		$count = mysqli_num_rows($get_month);
 
 		if($count>0){
-			echo '<option selected="" disabled="">Select Job Type First</option>';
+			echo '<option selected="" disabled="">Select Year First</option>';
 			while($row = mysqli_fetch_array($get_month)){
 
                 $dt = DateTime::createFromFormat('!m', $row['dispatch_month']);
