@@ -49,7 +49,9 @@
         $material_edit =mysqli_real_escape_string($conn ,$_POST['material_edit']);
         $size_edit =mysqli_real_escape_string($conn ,$_POST['size_edit']);
         $bind_edit =mysqli_real_escape_string($conn ,$_POST['bind_edit']);
-        $colour_edit =mysqli_real_escape_string($conn ,$_POST['colour_edit']);
+        $colour_edit =$_POST['colour_edit'];
+
+        //$colour_edit=str_replace('\n','</br>',mysqli_real_escape_string($conn ,$_POST['colour_edit']));
 
         $budget_edit =mysqli_real_escape_string($conn ,$_POST['budget_edit']);
         $discount_edit =mysqli_real_escape_string($conn ,$_POST['discount_edit']);
@@ -95,8 +97,10 @@
     $material =mysqli_real_escape_string($conn ,$_POST['material']);
     $size =mysqli_real_escape_string($conn ,$_POST['size']);
     $bind =mysqli_real_escape_string($conn ,$_POST['bind']);
-    $color =mysqli_real_escape_string($conn ,$_POST['color']);
+    $color = $_POST['color'];
 
+    //$color=str_replace('\n','&#013',mysqli_real_escape_string($conn ,$_POST['color']));
+    
     $budget =mysqli_real_escape_string($conn ,$_POST['budget']);
     $discount =mysqli_real_escape_string($conn ,$_POST['discount']);
     $discounted =mysqli_real_escape_string($conn ,$_POST['discounted']);
