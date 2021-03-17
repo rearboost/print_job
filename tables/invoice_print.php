@@ -71,7 +71,7 @@ body{
                       ?> 
                   </span><br>
 
-                  <label>Discount</label><span> :
+                  <label>Discount (%)</label><span> :
                      <?php 
                         $discount = $data['discount'];
                         echo number_format($discount,2,".",",") 

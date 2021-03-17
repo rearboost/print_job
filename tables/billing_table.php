@@ -220,7 +220,7 @@
            </div>
            <div class="row">
              <div class="col-sm-6" style="margin-left: 15px;">
-               <label>REST  </label>
+               <label>PAYMENT  </label>
              </div>
              <div class="col-sm-4" style="text-align: right;">
               <span style="display: inline-block; margin-left: 1%;"><div id="payment"></div></span>
