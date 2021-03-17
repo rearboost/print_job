@@ -116,7 +116,7 @@
     $max_no = $data['max_no']+1; 
 
     /* get job no by using current date n time - different with server date n time*/
-    $today = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
+    $today = new DateTime(null, new DateTimeZone('Asia/Colombo'));
     $duration = $today->format('Ymdhis');
 
     $job_no   = $duration . $max_no;

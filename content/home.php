@@ -267,9 +267,12 @@
             <div class = "card-body">
               <?php
                 /* current date n time - different with server date n time*/
-                $today = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
+
+                // date_default_timezone_set('Asia/Colombo');
+
+                $today = new DateTime(null, new DateTimeZone('Asia/Colombo'));
                 
-                $date = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
+                $date = new DateTime(null, new DateTimeZone('Asia/Colombo'));
                 $preday =$date->modify('-6 day');
                 
                 $day1 = $preday->format('Y-m-d');
