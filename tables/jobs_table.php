@@ -76,7 +76,7 @@
 
      }else if($row["state"]=="dispatch"){
         echo 
-        '<td> <label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."PRODUCTION".'</label></td>';
+        '<td> <label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."DISPATCH".'</label></td>';
 
      }else if($row["state"]=="complete"){
         echo 
