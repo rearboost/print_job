@@ -167,11 +167,11 @@
            <form method="post" id="pmh_form_edit">
               <div class="col-sm-12" style="display: inline-flex;">
                <div class="col-sm-6">
-                 <label>Job ID :</label><span style="display: inline-block; margin-left: 1%;"><div id="id_edit"></div></span>
+                 <!-- <label>Job ID :</label><span style="display: inline-block; margin-left: 1%;"><div id="id_edit"></div></span> -->
+                 <label>Job No :</label><span style="display: inline-block; margin-left: 1%;"><div id="no_edit"></div></span>
                  <input type="hidden" name="job_edit" id="job_edit">
                </div>
                <div class="col-sm-6">
-                 <label>Job No :</label><span style="display: inline-block; margin-left: 1%;"><div id="no_edit"></div></span>
                </div>
               </div>
               <div class="col-sm-12" style="display: inline-flex;">

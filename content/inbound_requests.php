@@ -406,7 +406,7 @@ function FormInsert() {
 
   var form_btn_submit =document.getElementById('form_btn_submit').name;
 
-  if(customer=='' || item=='' || budget==''){
+  if(customer=='' || item=='' || budget=='' || discount=='' || ad_pay_amount=='' || rest=='' || date==''){
     alert("Required field is empty!");
   }
   else {

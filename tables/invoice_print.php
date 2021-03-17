@@ -18,7 +18,7 @@ body{
 
     $data = mysqli_fetch_array($qry); // fetch data
         
-    $date = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
+    $date = new DateTime(null, new DateTimeZone('Asia/Colombo'));
 
 ?>
         <form id="print_form">

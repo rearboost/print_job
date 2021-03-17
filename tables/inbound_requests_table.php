@@ -273,7 +273,7 @@
              <label>Status</label>
              <select  class="form-control" name="status_edit" id="status_edit">
                <option value="">Select</option>
-               <option value="design">Design</option>
+               <option value="design">Accept</option>
                <option value="reject">Reject</option>
             </select>
            </div>

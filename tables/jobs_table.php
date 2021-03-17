@@ -50,9 +50,9 @@
      <th>ITEM</th>
      <th>ACCEPTED DATE</th>
      <th>STATUS</th>
-     <th>ACCEPTED BY</th>
      <th></th>
-     <th></th>
+     <!-- <th></th> -->
+     <!--td style="width: 5%;"><a href="../controller/jobs_controller?j_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td-->
     </tr>
    </thead>
    <tbody>
@@ -68,37 +68,43 @@
      <td>'.$row["date"].'</td>';
      if($row["state"]=="request"){
         echo 
-        '<td> <label class="btn-sm" style="background-color:green; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."REQUEST".'</label></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:green; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."REQUEST".'</label></center></td>';
 
-     }else if($row["state"]=="design" || $row["state"]=="production" || $row["state"]=="QA"){
+     // }else if($row["state"]=="design" || $row["state"]=="production" || $row["state"]=="QA"){
+     }else if($row["state"]=="design"){
         echo 
-        '<td> <label class="btn-sm" style="background-color:orange; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."ASSIGN".'</label></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:#e6005c; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."DESIGN".'</label></center></td>';
+
+     }else if($row["state"]=="production"){
+        echo 
+        '<td> <center> <label class="btn-sm" style="background-color:#00a3cc; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."PRODUCTION".'</label></center></td>';
+        
+     }else if($row["state"]=="QA"){
+        echo 
+        '<td> <center> <label class="btn-sm" style="background-color:orange; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."QA".'</label></center></td>';
 
      }else if($row["state"]=="dispatch"){
         echo 
-        '<td> <label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."DISPATCH".'</label></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."DISPATCH".'</label></center></td>';
 
      }else if($row["state"]=="complete"){
         echo 
-        '<td> <label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."COMPLETE".'</label></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."COMPLETE".'</label></center></td>';
 
      }else if($row["state"]=="reject"){
         echo 
-        '<td> <label class="btn-sm" style="background-color:gray; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."REJECT".'</label></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:gray; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."REJECT".'</label></center></td>';
      }
     echo '
-     
-     <td>'.$row["accepted_by"].'</td>
-
       <td><button type="button"  id="' .$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModaljobs" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px;">View</button></td>
 
-     <td style="width: 5%;"><a href="../controller/jobs_controller?j_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td>
+
     </tr>
      ';
     $i++;
    }
    ?>
-   </tbody>
+   </tbody>     
   </table>
 </div>
    <?php
@@ -173,18 +179,18 @@
   <div class="modal-dialog" style="max-width: 1000px;">
     <div class="modal-content" style="height : auto;">
       <div class="modal-header" style="background-color: #507183;">
-        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">Completed</b></span>
+        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">JOB ORDERING SYSTEM</b></span>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body" style="background-color: #d6e1e9;">
         <form method="post" id="pmh_form_edit">
             <div class="col-sm-12" style="display: inline-flex;">
              <div class="col-sm-6">
-               <label>Job ID :</label><span style="display: inline-block; margin-left: 1%;"><div id="id_edit"></div></span>
+               <!-- <label>Job ID :</label><span style="display: inline-block; margin-left: 1%;"><div id="id_edit"></div></span> -->
+               <label>Job No :</label><span style="display: inline-block; margin-left: 1%;"><div id="no_edit"></div></span>
                <input type="hidden" name="job_edit" id="job_edit"/>
              </div>
              <div class="col-sm-6">
-               <label>Job No :</label><span style="display: inline-block; margin-left: 1%;"><div id="no_edit"></div></span>
              </div>
             </div>
             <hr>

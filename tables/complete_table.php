@@ -107,11 +107,13 @@
            $('#id_edit').html(data['id']);
            $('#no_edit').html(data['job_no']);
            $('#adate_edit').html(data['date']);
+           $('#customer').html(data['customer']);
 
            $('#job_edit').val(data['id']);
            $('#job_no_edit').val(data['job_no']);
            $('#customer_edit').val(data['customer']);
            $('#accepted_by_edit').val(data['accepted_by']);
+           $('#designed_by_edit').val(data['designed_by']);
            $('#checked_by_edit').val(data['checked_by']);
            $('#channel_edit').val(data['channel']);
            $('#type_edit').val(data['job_type']);
@@ -153,25 +155,26 @@
         <form method="post" id="pmh_form_edit">
             <div class="col-sm-12" style="display: inline-flex;">
              <div class="col-sm-4">
-               <label>Job ID :</label><span style="display: inline-block; margin-left: 1%;"><div id="id_edit"></div></span>
+               <!-- <label>Job ID :</label><span style="display: inline-block; margin-left: 1%;"><div id="id_edit"></div></span> -->
+               <label>Job No :</label><span style="display: inline-block; margin-left: 1%;"><div id="no_edit"></div></span>
                <input type="hidden" name="job_edit" id="job_edit"/>
              </div>
              <div class="col-sm-4">
-               <label>Job No :</label><span style="display: inline-block; margin-left: 1%;"><div id="no_edit"></div></span>
+               <label>Ordered Date :</label><span style="display: inline-block; margin-left: 1%;"><div id="adate_edit"></div></span>
              </div>
              <div class="col-sm-4">
-               <label>Ordered Date :</label><span style="display: inline-block; margin-left: 1%;"><div id="adate_edit"></div></span>
+               <label>Customer :</label><span style="display: inline-block; margin-left: 1%;"><div id="customer"></div></span>
              </div>
             </div>
             <hr>
             <div class="col-sm-12" style="display: inline-flex;">
              <div class="col-sm-3">
-                <label>Customer :</label>
-                <input type="text" name="customer_edit" id="customer_edit" class="form-control" style="margin-bottom: 10px;"/ disabled>
-              </div>
-              <div class="col-sm-3">
                 <label>Accepted By :</label>
                 <input type="text" name="accepted_by_edit" id="accepted_by_edit" class="form-control" style="margin-bottom: 10px;"/ disabled>
+              </div>
+              <div class="col-sm-3">
+                <label>Designed by :</label>
+                <input type="text" name="designed_by_edit" id="designed_by_edit" class="form-control" style="margin-bottom: 10px;"/ disabled>
               </div>
               <div class="col-sm-3">
                 <label>Checked By :</label>

@@ -63,7 +63,9 @@
         $admin_description_edit =mysqli_real_escape_string($conn ,$_POST['admin_description_edit']);
         $status_edit =mysqli_real_escape_string($conn ,$_POST['status_edit']);
 
-        $query ="UPDATE  jobs  SET material=?,size=?,bind=?,colour=?,date=?,quantity=?,budget=?,discount=?,discounted=?,ad_pay_amount=?,rest=?,admin_description=?,state=?  WHERE id=?;";
+        $design_by= $_SESSION['email']; 
+
+        $query ="UPDATE  jobs  SET material=?,size=?,bind=?,colour=?,date=?,quantity=?,budget=?,discount=?,discounted=?,ad_pay_amount=?,rest=?,admin_description=?,state=?,designed_by=? WHERE id=?;";
 
         $stmt =mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$query))
@@ -72,7 +74,7 @@
         }
         else
         {
-            mysqli_stmt_bind_param($stmt,"ssssssssssssss",$material_edit,$size_edit,$bind_edit,$colour_edit,$date_edit,$quantity_edit,$budget_edit,$discount_edit,$discounted_edit,$ad_pay_amount_edit,$rest_edit,$admin_description_edit,$status_edit,$job_edit);
+            mysqli_stmt_bind_param($stmt,"sssssssssssssss",$material_edit,$size_edit,$bind_edit,$colour_edit,$date_edit,$quantity_edit,$budget_edit,$discount_edit,$discounted_edit,$ad_pay_amount_edit,$rest_edit,$admin_description_edit,$status_edit,$design_by,$job_edit);
             $result =  mysqli_stmt_execute($stmt);
             if($result){
               echo "Successfull! pushed to Design Section";
