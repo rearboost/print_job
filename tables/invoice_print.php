@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 body{
   font-family: arial;
@@ -20,7 +21,6 @@ body{
     $date = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
 
 ?>
-
         <form id="print_form">
           <div>
             <!-- <img src="../icon/small.jpg" style="padding-left: 6%;" height="60px" width="60px"><br><br> -->
