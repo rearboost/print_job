@@ -80,7 +80,7 @@
 
      }else if($row["state"]=="complete"){
         echo 
-        '<td> <label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."PRODUCTION".'</label></td>';
+        '<td> <label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."COMPLETE".'</label></td>';
 
      }else if($row["state"]=="reject"){
         echo 

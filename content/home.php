@@ -266,6 +266,7 @@
           <div class="card" style="background-color: #ebebe0;">
             <div class = "card-body">
               <?php
+                /* current date n time - different with server date n time*/
                 $today = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
                 
                 $date = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
