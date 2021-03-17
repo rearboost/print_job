@@ -44,38 +44,40 @@
 
    if(isset($_POST['form_bill']))
     {
-        $job_edit =mysqli_real_escape_string($conn ,$_POST['job_edit']);
+    $job_edit =mysqli_real_escape_string($conn ,$_POST['job_edit']);
 
-        $rest_edit =mysqli_real_escape_string($conn ,$_POST['rest_edit']);
-        $cash_edit =mysqli_real_escape_string($conn ,$_POST['cash_edit']);
-        $change_edit =mysqli_real_escape_string($conn ,$_POST['change_edit']);
-        $payment_edit =mysqli_real_escape_string($conn ,$_POST['payment_edit']);
-        $dispatch_day_edit =mysqli_real_escape_string($conn ,$_POST['dispatch_day_edit']);
+    $rest_edit =mysqli_real_escape_string($conn ,$_POST['rest_edit']);
+    $cash_edit =mysqli_real_escape_string($conn ,$_POST['cash_edit']);
+    $change_edit =mysqli_real_escape_string($conn ,$_POST['change_edit']);
+    $payment_edit =mysqli_real_escape_string($conn ,$_POST['payment_edit']);
+    $dispatch_day_edit =mysqli_real_escape_string($conn ,$_POST['dispatch_day_edit']);
 
-          $date = explode('-', $dispatch_day_edit);
+    $date = explode('-', $dispatch_day_edit);
 
-          $dispatch_year  = $date[0];
-          $dispatch_month = $date[1];
+    $dispatch_year  = $date[0];
+    $dispatch_month = $date[1];
 
-          if($rest_edit == $payment_edit){
-            $rest_edit = '0.00';
+    $dispatch_by     = $_SESSION['email'];  
+
+    if($rest_edit == $payment_edit){
+      $rest_edit = '0.00';
+    }
+
+      $query_dispatch ="UPDATE  jobs  SET rest=?,cash=?,change_amt=?,payment=?,dispatch_day=?,dispatch_year=?,dispatch_month=?,dispatched_by=? WHERE id=?;";
+
+      $stmt =mysqli_stmt_init($conn);
+      if(!mysqli_stmt_prepare($stmt,$query_dispatch))
+      {
+         echo "SQL Error";
+      }
+      else
+      {
+          mysqli_stmt_bind_param($stmt,"sssssssss",$rest_edit,$cash_edit,$change_edit,$payment_edit,$dispatch_day_edit,$dispatch_year,$dispatch_month,$dispatch_by,$job_edit);
+          $result =  mysqli_stmt_execute($stmt);
+          if($result){
+            echo "Success! Product can dispatch now.";
           }
-
-        $query_dispatch ="UPDATE  jobs  SET rest=?,cash=?,change_amt=?,payment=?,dispatch_day=?,dispatch_year=?,dispatch_month=? WHERE id=?;";
-
-        $stmt =mysqli_stmt_init($conn);
-        if(!mysqli_stmt_prepare($stmt,$query_dispatch))
-        {
-           echo "SQL Error";
-        }
-        else
-        {
-            mysqli_stmt_bind_param($stmt,"ssssssss",$rest_edit,$cash_edit,$change_edit,$payment_edit,$dispatch_day_edit,$dispatch_year,$dispatch_month,$job_edit);
-            $result =  mysqli_stmt_execute($stmt);
-            if($result){
-              echo "Success! Product can dispatch now.";
-            }
-        }
+      }
     }
 
  ?>

@@ -9,8 +9,8 @@
 <html lang="en">
 <head>
   <!-- head title and icon -->
-  <link rel="shortcut icon" href="../icon/jobshop_logo.png" />
-  <title>Job Shop - Daily Sales Report</title>
+  <link rel="shortcut icon" href="../icon/small.jpg" />
+  <title>Job Ordering System - Daily Sales Report</title>
   <!-- header -->
   <?php include('../include/head.php'); ?>
 </head>

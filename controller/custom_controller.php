@@ -60,6 +60,9 @@
         {
             mysqli_stmt_bind_param($stmt,"ssss",$customer_edit,$contact_edit,$address_edit,$customerid_edit);
             $result =  mysqli_stmt_execute($stmt);
+            if($result){
+              echo "Successfully updated!";
+            }
         }
     }
 

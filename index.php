@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="icon/jobshop_logo.png" />
+  <link rel="shortcut icon" href="icon/small.jpg" />
   <title>Job Shop - Login</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,8 +20,8 @@
 <body class="bg-dark">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header" style="margin-bottom: 15px;">Login</div>
-      <img src="icon/jobshop_logo.png" alt="" style="height: 153px; padding: 5%; width: 72%;margin: auto; border: 1px solid #7bc1bf;">
+      <div class="card-header" style="margin-bottom: 15px;"><center>Login</center></div>
+      <img src="icon/jobshop_logo.png" alt="" style="height: 75%; padding: 5%; width: 75%;margin: auto; ">
       <div class="card-body">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
           <div class="form-group">

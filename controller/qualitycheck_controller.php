@@ -82,6 +82,9 @@ if(isset($_POST['from_btn_edit']))
   {
       mysqli_stmt_bind_param($stmt,"sss",$user_description_edit,$failed_reason_edit,$job_edit);
       $result =  mysqli_stmt_execute($stmt);
+      if($result){
+        echo "Successfully updated!";
+      }
   }
 }
 

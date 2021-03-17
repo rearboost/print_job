@@ -144,6 +144,7 @@
     });
   });
 
+
   </script>
 
 <!-- Edid From  Past medical history Modal -->
@@ -367,7 +368,7 @@
        $.ajax({
          url:"../controller/inbound_requests_controller.php",
          method:"POST",
-         data:{job_edit:job_edit,quantity_edit:quantity_edit,material_edit:material_edit,size_edit:size_edit,bind_edit:bind_edit,budget_edit:budget_edit,discount_edit:discount_edit,discounted_edit:discounted_edit,ad_pay_amount_edit:ad_pay_amount_edit,rest_edit:rest_edit,date_edit:date_edit,admin_description_edit:admin_description_edit,status_edit:status_edit,from_btn_edit:from_btn_edit},
+         data:{job_edit:job_edit,quantity_edit:quantity_edit,material_edit:material_edit,size_edit:size_edit,bind_edit:bind_edit,colour_edit:colour_edit,budget_edit:budget_edit,discount_edit:discount_edit,discounted_edit:discounted_edit,ad_pay_amount_edit:ad_pay_amount_edit,rest_edit:rest_edit,date_edit:date_edit,admin_description_edit:admin_description_edit,status_edit:status_edit,from_btn_edit:from_btn_edit},
          success:function(data){
 
          // Message success call function

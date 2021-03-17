@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" href="home"><img src="../icon/jobshop_logo.png" alt="" style="height: 30px; width: 30%; margin-left: 2%;"></a>
+  <a class="navbar-brand" href="home">
+    <!-- <h4 style="color: #ec008c;">NAVIGATE PRINTERS & ADVERTISING</h4> -->
+    <img src="../icon/icon.png" alt="" style="height: 35px; width: 90px; margin-left: 2%;">
+  </a>
+
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -101,8 +105,9 @@
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
           </div>
         </div> -->
-            <a class="nav-link" href="../logout" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        <a class="nav-link" href="../logout" data-toggle="modal" data-target="#exampleModal">
+        <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+ 
       </li>
     </ul>
   </div>

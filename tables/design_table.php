@@ -147,6 +147,7 @@
            $('#material_edit').val(data['material']);
            $('#size_edit').val(data['size']);
            $('#bind_edit').val(data['bind']);
+           $('#colour_edit').val(data['colour']);
            $('#user_description_edit').val(data['user_description']);
            $('#admin_description_edit').val(data['admin_description']);
          }
@@ -215,6 +216,19 @@
                   </SELECT>
                 </div>  
               </div>
+              <div class="col-sm-12" style="display: inline-flex;">
+                <div class="col-sm-3">
+                    <label>Color</label>
+                    <input type="color" name="colour2" id="colour2" style="margin-bottom: 10px; width: 100%; height: 45%;"/>
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="button" id="color_edit_btn" name="color_edit_btn" class="btn btn-primary" onclick="getValue_edit()" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 35px; margin-left: 1.5%;">Add</button>
+                  </div>
+                  <div class="col-sm-4">
+                    <br>
+                    <textarea name="colour_edit" id="colour_edit" class="form-control" style="resize: vertical; margin-bottom: 10px;"></textarea>
+                 </div>
+                </div> 
               <div class="col-sm-12">
                 <div class="col-sm-6" style="float: right;">
                   <label>User description</label>
@@ -254,7 +268,6 @@ function FormDesign() {
     // Message success call function
     myform1();
     $('#msg_view').html(data);
-
     }
   });
 }
@@ -269,6 +282,25 @@ function FormDesign() {
      // Location refech
      setTimeout(function(){location.reload(); },2500);
  }
+
+ //  Insert Into the textarea 
+ function getValue_edit(){
+      var x = document.getElementById("colour2").value;
+      var textarea = document.getElementById('colour_edit');
+      textarea.value = textarea.value +x +'\n';
+  }
+
+   // Pushed to the arry multiple color codes 
+  function setEditArry(){
+    var array=[];
+    var lines = $('#colour_edit').val().split('\n');
+    $.each(lines, function(i){
+      array.push({no:i,code:this});
+    });
+    array.splice(-1,1)
+    console.log(JSON.stringify(array, null, 1));
+    $('#myitemjson_edit').val(JSON.stringify(array));
+  }
 
   $(document).ready(function() {
       $('#example').DataTable();

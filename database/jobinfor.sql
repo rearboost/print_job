@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2021 at 10:19 PM
+-- Generation Time: Mar 17, 2021 at 01:07 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.30
 
@@ -69,13 +69,15 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `customer_name`, `contact`, `address`) VALUES
 (1, 'Amali senadheera', '071 7894578', 'No:01, kalutara north, kalutara'),
-(2, 'Rashini Amanda', '071 4789789', 'Panadura'),
+(2, 'S.R.I Sandamali', '071 4789789', 'low lvl rd, hanwella.'),
 (3, 'hasitha senanayaka', '071 7894568', 'No:01, neboda, kalutara'),
 (4, 'Malinda perera', '071 4789456', 'No.43/D/4, 3rd Lane, Galwarusa, Korathota, Kaduwela.'),
-(5, 'ABCD ', '0117894561', 'No:20, miriswatta, gampaha'),
-(7, 'M.G peraera', '078 4568527', 'Kuruwita, rathnapura'),
+(5, 'K.Prasangi', '0117894561', 'No:20, miriswatta, gampaha'),
+(7, 'M.G perera', '078 4568527', 'Kuruwita, rathnapura'),
 (8, 'Rajitha Nuwan', '078 4561478', 'Horana, Kalutara'),
-(9, 'Kumudu Prasangi', '071 4562583', 'Ahangama, Galle');
+(9, 'Rashini Amanda', '071 4562583', 'Ahangama, Galle'),
+(10, 'sandaru maleesha', '071 4781478', 'Alwiz rd, bentota'),
+(11, 'Amandi perera', '011 7894578', 'Aluthgama');
 
 -- --------------------------------------------------------
 
@@ -133,34 +135,20 @@ CREATE TABLE `jobs` (
   `payment` decimal(10,2) NOT NULL,
   `dispatch_day` varchar(100) NOT NULL,
   `dispatch_year` varchar(10) NOT NULL,
-  `dispatch_month` varchar(10) NOT NULL
+  `dispatch_month` varchar(10) NOT NULL,
+  `dispatched_by` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`, `category`, `material`, `size`, `bind`, `colour`, `user_description`, `date`, `quantity`, `budget`, `discount`, `discounted`, `ad_pay_amount`, `rest`, `admin_description`, `state`, `accepted_by`, `checked_by`, `failed_reason`, `cash`, `change_amt`, `payment`, `dispatch_day`, `dispatch_year`, `dispatch_month`) VALUES
-(5, '', '234', '', '', '', '', 'sdfs', '', '', '#e93f33', 'fdgdg', '2018-04-23', '3423.00', '696.45', '18.00', '0.00', '10.00', '0.00', 'tert', 'complete', '', '', '', '0.00', '0.00', '650.00', '2018-05-03', '2018', '05'),
-(6, '', '34', '', '', '', '', 'das', '', '', '234', 'dfs', '2018-04-19', '3242.00', '24.00', '242.00', '0.00', '42.00', '0.00', 'dsf', 'complete', '', 'admin@gmail.com', '', '0.00', '0.00', '0.00', '2021-03-05', '2021', '03'),
-(7, '', '435', '', '', '', '', 'dfs', '', '', 'sf', 'dfsf', '2018-04-03', '432.00', '324.00', '324.00', '0.00', '234.00', '0.00', 'fsdf', 'complete', '', '', '', '33000.00', '568.00', '32432.00', '2021-02-17', '2021', '02'),
-(8, '', '435', '', '', '', '', 'dfsd', '', '', '#000000', 'fdgfd', '2018-04-10', '5.00', '5000.00', '0.00', '5000.00', '2000.00', '3000.00', 'dsfsf', 'QA', '', '', '', '3000.00', '0.00', '3000.00', '2021-02-24', '2021', '02'),
-(9, '', '453', '', '', '', '', 'fds', '', '', 'hg', 'ghfg', '2018-04-24', '66.00', '4324.00', '42.00', '0.00', '423.00', '0.00', 'fsdds', 'complete', '', '', '', '0.00', '0.00', '0.00', '2021-01-20', '', ''),
-(10, '', '564', '', '', '', '', 'dsfsd', '', '', '23', 'dasd', '2018-04-23', '1.00', '1250.00', '0.00', '1250.00', '250.00', '0.00', '34234', 'dispatch', '', '', '', '1000.00', '0.00', '1000.00', '2021-02-24', '2021', '02'),
-(11, '', '546', '', '', '', '', 'gfdg', '', '', '#000000', 'rtert', '2018-04-24', '5.00', '7500.00', '0.00', '7350.00', '150.00', '7350.00', 'dfg', 'dispatch', '', '', '', '0.00', '0.00', '7350.00', '2020-08-30', '2020', '08'),
-(12, '', '234', '', '', '', '', 'sdfs', '', '', '#2048f6', 'fdgdg', '2018-04-23', '3423.00', '11.96', '12.00', '0.00', '10.00', '0.00', 'tert', 'complete', '', '', '', '0.00', '0.00', '34.00', '2021-01-20', '', ''),
-(14, '', '0', '', '', '', '', '', '', '', '#e00b0b', 'This notice by designer.', '0000-00-00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'design', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(15, '', '0', '', '', '', '', 'Aluminium', '', '', '#000000', '', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 'Immediate', 'production', '', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(16, '20210203124503', 'Senanayaka', 'EXP', 'Design', 'xxx', 'xxx', 'Stainless Steels', 'xxx', 'Perfect', '#000000', '', '2018-04-30', '2.00', '5000.00', '5.00', '4750.00', '2500.00', '2250.00', 'Immediate', 'design', 'cashier', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(20, '', 'amal peiris', '', '', '', '', 'Stainless Steel', '', '', '#000000', 'zdasd\\nThis notice by QA', '2018-04-26', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', 'QA', '', '', 'Not Quality.', '0.00', '0.00', '0.00', '', '', ''),
-(24, '20210226020334am24', 'Rashini Amanda', 'EXP', 'Digital printing', 'Business card', 'Business package', 'mat card', 'small', 'None', 'red', '', '2021-02-25', '100.00', '10000.00', '2.00', '9800.00', '5000.00', '4800.00', 'Printed card with design.', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(25, '20210226021306am25', 'Kavishka prabath', 'DIR', 'Design', 'Logo design', 'Simple Package', '', 'Medium', 'None', 'red', '', '2021-02-25', '1.00', '2500.00', '0.00', '2500.00', '1000.00', '1500.00', 'Design with source file.', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(26, '20210226021633am26', 'Amali senadheera', 'EXP', 'Design', 'Business card', 'Business package', 'shine card', 'small', 'None', '#ffffff', '', '2021-02-25', '150.00', '15000.00', '1.50', '14775.00', '6000.00', '8775.00', 'With design', 'request', 'designer@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(27, '2021030111414427', 'hasitha senanayaka', 'EXP', 'Offset Printing', 'Logo design', 'Simple Package', '', '', 'None', 'red', '', '2021-03-01', '100.00', '10000.00', '2.50', '9750.00', '4000.00', '5750.00', 'fgfdshhgf', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(28, '2021030302101528', 'Malinda perera', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'small', 'None', 'red', '', '2021-03-02', '100.00', '7000.00', '0.00', '7000.00', '2000.00', '5000.00', 'with design', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(30, '2021030501382529', 'M.G peraera', 'EXP', 'Others', 'Photocopies', 'No products available', '', '', 'None', 'red', '', '2021-03-05', '150.00', '3750.00', '0.00', '3750.00', '1500.00', '2250.00', '5 sets', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(31, '2021030808190631', 'Rajitha Nuwan', 'DIR', 'Digital printing', 'Banner\n', '', 'Board', 'banner', 'None', '#000000\n#d50707\n#fff', '', '2021-03-08', '1.00', '6500.00', '0.00', '6500.00', '3000.00', '3500.00', 'White font, black border and red color background with design.', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', ''),
-(32, '2021031001172532', 'Kumudu Prasangi', 'DIR', 'Design', 'Broucher', 'Half fold', '', 'Medium', 'None', '#ffffff\n#b50303\n#000', '', '2021-03-09', '1.00', '3500.00', '3.00', '3395.00', '1500.00', '1895.00', 'Design only', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '');
+INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`, `category`, `material`, `size`, `bind`, `colour`, `user_description`, `date`, `quantity`, `budget`, `discount`, `discounted`, `ad_pay_amount`, `rest`, `admin_description`, `state`, `accepted_by`, `checked_by`, `failed_reason`, `cash`, `change_amt`, `payment`, `dispatch_day`, `dispatch_year`, `dispatch_month`, `dispatched_by`) VALUES
+(1, '202103160315141', 'amali senadheera', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', 'now it is ok', '2021-03-06', '3.00', '900.00', '0.00', '900.00', '200.00', '0.00', '100 pages for each', 'complete', 'admin@gmail.com', 'admin@gmail.com', '', '1000.00', '300.00', '700.00', '2021-03-16', '2021', '03', 'admin@gmail.com'),
+(2, '202103160318292', 'Rashini Amanda', 'DIR', 'Design', 'Logo Design', 'Starter Package', '', 'small', 'None', '#f81616\n#1678f8\n#ffffff\n#ddd60e\n', '', '2021-03-10', '1.00', '3500.00', '5.00', '3325.00', '1000.00', '2325.00', 'only design', 'design', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(3, '202103160221343', 'S.R.I Sandamali', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'medium', 'None', '#02a72b\n#ffffff\n', '', '2021-03-12', '150.00', '10000.00', '2.00', '9800.00', '3500.00', '6300.00', 'With design', 'request', 'admin@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(4, '202103160426004', 'sandaru maleesha', 'EXP', 'Others', 'printout', 'No categories available', '', '', 'None', '', '', '2021-03-16', '25.00', '750.00', '0.00', '750.00', '250.00', '500.00', 'Color printouts. immediately', 'request', 'user@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(5, '202103160436555', 'Amandi perera', 'DIR', 'Digital printing', 'Banner', 'No categories available', '', 'large', 'None', '#c20a54\\n#120209\\n#ffffff\\n', '', '2021-03-16', '2.00', '12500.00', '5.00', '11875.00', '4000.00', '7875.00', 'with design', 'design', 'user@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -444,9 +432,8 @@ CREATE TABLE `signup` (
 
 INSERT INTO `signup` (`id`, `email`, `password`, `level`) VALUES
 (1, 'admin@gmail.com', '698d51a19d8a121ce581499d7b701668', 1),
-(2, 'user', '202cb962ac59075b964b07152d234b70', 3),
-(3, 'cashier', '250cf8b51c773f3f8dc8b4be867a9a02', 2),
-(4, 'designer@gmail.com', '83dffbf894f849e7975a69a2c24aca8b', 3);
+(2, 'user@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 2),
+(3, 'cashier@gmail.com', '6ac2470ed8ccf204fd5ff89b32a355cf', 2);
 
 -- --------------------------------------------------------
 
@@ -542,12 +529,12 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `jobs_type`
 --
@@ -572,7 +559,7 @@ ALTER TABLE `product_type`
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user_level`
 --

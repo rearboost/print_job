@@ -106,6 +106,7 @@
 
            $('#id_edit').html(data['id']);
            $('#no_edit').html(data['job_no']);
+           $('#adate_edit').html(data['date']);
 
            $('#job_edit').val(data['id']);
            $('#job_no_edit').val(data['job_no']);
@@ -131,6 +132,7 @@
            $('#change_edit').val(data['change_amt']);
            $('#payment_edit').val(data['payment']);
            $('#dispatch_day_edit').val(data['dispatch_day']);
+           $('#dispatched_by_edit').val(data['dispatched_by']);
            $('#user_description_edit').val(data['user_description']);
            $('#admin_description_edit').val(data['admin_description']);
          }
@@ -150,12 +152,15 @@
       <div class="modal-body" style="background-color: #d6e1e9;">
         <form method="post" id="pmh_form_edit">
             <div class="col-sm-12" style="display: inline-flex;">
-             <div class="col-sm-6">
+             <div class="col-sm-4">
                <label>Job ID :</label><span style="display: inline-block; margin-left: 1%;"><div id="id_edit"></div></span>
                <input type="hidden" name="job_edit" id="job_edit"/>
              </div>
-             <div class="col-sm-6">
+             <div class="col-sm-4">
                <label>Job No :</label><span style="display: inline-block; margin-left: 1%;"><div id="no_edit"></div></span>
+             </div>
+             <div class="col-sm-4">
+               <label>Ordered Date :</label><span style="display: inline-block; margin-left: 1%;"><div id="adate_edit"></div></span>
              </div>
             </div>
             <hr>
@@ -173,8 +178,8 @@
                 <input type="text" name="checked_by_edit" id="checked_by_edit" class="form-control" style="margin-bottom: 10px;"/ disabled>
               </div>
               <div class="col-sm-3">
-                <label>Ordered Date :</label>
-                <input type="text" name="date_edit" id="date_edit" class="form-control" style="margin-bottom: 10px;"/ disabled>
+                <label>Dispatched By :</label>
+                <input type="text" name="dispatched_by_edit" id="dispatched_by_edit" class="form-control" style="margin-bottom: 10px;"/ disabled>
               </div>
             </div>
             <hr>

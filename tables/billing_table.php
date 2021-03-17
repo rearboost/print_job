@@ -144,13 +144,10 @@
  <div id="myModal" class="modal fade">
     <div class="modal-dialog" style="max-width: 350px;">
      <div class="modal-content" style="height : auto;">
-        <div class="modal-header" style="background-color: #507183;">
+        <div class="modal-header" style="background-color: #ffffff;">
           <!-- <span style="font-size: 23px;"><b style="color: white;letter-spacing: 1.3px;">Invoice</b></span> -->
-          <!-- <center>
-            <h3><b>JOB CARD</b></h3><br>
-            <p style="margin-top: 0px;">Address : No:01, horana road, panadura.</p><br>
-            <p style="margin-top: 0px;"><b>Hotline : 011 2547 894 / 077 4578 456</b></p>
-          </center> -->
+          <img src="../icon/small.jpg" style="padding-left:30%; padding-right:30%;"> 
+
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body" style="background-color: #d6e1e9;">

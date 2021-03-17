@@ -51,7 +51,7 @@
          <th>Channel</th>
          <th>Type</th>
          <th>Item</th>
-         <th>Material</th>
+         
          <th></th>
          <th style="width: 14%;"></th>
          <th style="width: 14%;"></th>
@@ -70,7 +70,6 @@
          <td>'.$row["channel"].'</td>
          <td>'.$row["job_type"].'</td>
          <td>'.$row["product"].'</td>
-         <td>'.$row["material"].'</td>
          <td><button type="button"  id="'.$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModalqa" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;">View</button></td>';
 
 

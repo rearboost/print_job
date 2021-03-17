@@ -359,7 +359,7 @@
 
          // Message success call function
           myformpay();
-
+          $('#msg_view').html(data);
          }
       });
   }

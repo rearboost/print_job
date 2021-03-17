@@ -49,7 +49,7 @@
         $material_edit =mysqli_real_escape_string($conn ,$_POST['material_edit']);
         $size_edit =mysqli_real_escape_string($conn ,$_POST['size_edit']);
         $bind_edit =mysqli_real_escape_string($conn ,$_POST['bind_edit']);
-        // $colour_edit =mysqli_real_escape_string($conn ,$_POST['colour_edit']);
+        $colour_edit =mysqli_real_escape_string($conn ,$_POST['colour_edit']);
 
         $budget_edit =mysqli_real_escape_string($conn ,$_POST['budget_edit']);
         $discount_edit =mysqli_real_escape_string($conn ,$_POST['discount_edit']);
@@ -61,7 +61,7 @@
         $admin_description_edit =mysqli_real_escape_string($conn ,$_POST['admin_description_edit']);
         $status_edit =mysqli_real_escape_string($conn ,$_POST['status_edit']);
 
-        $query ="UPDATE  jobs  SET material=?,size=?,bind=?,date=?,quantity=?,budget=?,discount=?,discounted=?,ad_pay_amount=?,rest=?,admin_description=?,state=?  WHERE id=?;";
+        $query ="UPDATE  jobs  SET material=?,size=?,bind=?,colour=?,date=?,quantity=?,budget=?,discount=?,discounted=?,ad_pay_amount=?,rest=?,admin_description=?,state=?  WHERE id=?;";
 
         $stmt =mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$query))
@@ -70,8 +70,11 @@
         }
         else
         {
-            mysqli_stmt_bind_param($stmt,"sssssssssssss",$material_edit,$size_edit,$bind_edit,$date_edit,$quantity_edit,$budget_edit,$discount_edit,$discounted_edit,$ad_pay_amount_edit,$rest_edit,$admin_description_edit,$status_edit,$job_edit);
+            mysqli_stmt_bind_param($stmt,"ssssssssssssss",$material_edit,$size_edit,$bind_edit,$colour_edit,$date_edit,$quantity_edit,$budget_edit,$discount_edit,$discounted_edit,$ad_pay_amount_edit,$rest_edit,$admin_description_edit,$status_edit,$job_edit);
             $result =  mysqli_stmt_execute($stmt);
+            if($result){
+              echo "Successfull! pushed to Design Section";
+            }
         }
     }
 
@@ -108,7 +111,7 @@
     $data   = mysqli_fetch_assoc($sqli);
     $max_no = $data['max_no']+1; 
 
-    $today = new DateTime(null, new DateTimeZone('Etc/GMT+8'));
+    $today = new DateTime(null, new DateTimeZone('Etc/GMT+7'));
     $duration = $today->format('Ymdhis');
 
     $job_no   = $duration . $max_no;
