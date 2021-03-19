@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2021 at 01:37 AM
+-- Generation Time: Mar 19, 2021 at 10:28 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.30
 
@@ -158,7 +158,7 @@ INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`
 (7, '202103180348507', 'Imashi Liyanage', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', '', '2021-03-17', '5.00', '0.00', '1500.00', '0.00', '1500.00', '0.00', '1500.00', '100 pages for each set', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
 (8, '202103180357018', 'M.G perera', 'DIR', 'Design', 'Ticket', 'No categories available', '', '', 'Tape', '#ffffff\n#000000\n', '', '2021-03-17', '150.00', '0.00', '2250.00', '0.00', '2250.00', '1500.00', '750.00', '', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
 (9, '202103180402589', 'Malinda perera', 'EXP', 'Others', 'printout', 'No categories available', '', '', 'None', '', '', '2021-03-17', '25.00', '0.00', '750.00', '2.00', '735.00', '0.00', '735.00', 'colored printouts', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(10, '2021031804301310', 'chameera senadheera', 'DIR', 'Design', 'Business Card', 'Double side', 'shine card', 'small', 'None', '#8a0505\n#100e0e\n', '', '2021-03-17', '200.00', '0.00', '5000.00', '0.00', '5000.00', '1000.00', '4000.00', '', 'dispatch', 'cashier@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'cashier@gmail.com', '', '0.00', '0.00', '0.00', '', '', '', '');
+(10, '2021031804301310', 'chameera senadheera', 'DIR', 'Design', 'Business Card', 'Double side', 'shine card', 'small', 'None', '#8a0505\n#100e0e\n', '', '2021-03-17', '100.00', '50.00', '5000.00', '0.00', '5000.00', '1000.00', '0.00', '', 'dispatch', 'cashier@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'cashier@gmail.com', '', '4000.00', '0.00', '4000.00', '2021-03-19', '2021', '03', 'admin@gmail.com');
 
 -- --------------------------------------------------------
 

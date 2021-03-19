@@ -202,35 +202,193 @@
                 </tr>
                 <tr style="border-bottom: 2px solid white;">
                   <td>
-                    <a href="customer" style="text-decoration: none">
-                    <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> See All Customers</a>
-                  </td>
-                </tr>
-                <tr style="border-bottom: 2px solid white;">
-                  <td>
-                    <a href="billing" style="text-decoration: none">
-                    <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> See Billing Details</a>
-                  </td>
-                </tr>
-                <tr style="border-bottom: 2px solid white;">
-                  <td>
                     <a href="daily_sales" style="text-decoration: none">
                     <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> See About Sales</a>
                   </td>
                 </tr>
+                <tr style="border-bottom: 2px solid white;">
+                  <td>
+                    <a href="customer" style="text-decoration: none" data-toggle="modal" data-target="#myModal_type">
+                    <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> Add New Job Type</a>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 2px solid white;">
+                  <td>
+                    <a href="billing" style="text-decoration: none" data-toggle="modal" data-target="#myModal_product">
+                    <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> Add New Product</a>
+                  </td>
+                </tr>
                 <tr>
                   <td>
-                    <a href="setting" style="text-decoration: none">
-                    <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> Add new user</a>
+                    <a href="setting" style="text-decoration: none" data-toggle="modal" data-target="#myModal_category">
+                    <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> Add new Category</a>
                   </td>
                 </tr>
               </table>
-
-
-                  
             </div>
           </div>
         </div> <!-- end of 1st column-->
+
+<!-- modal for Add New Job type-->
+<div id="myModal_type" class="modal fade">
+  <div class="modal-dialog" style="max-width: 400px;">
+    <div class="modal-content" style="height : auto;">
+      <div class="modal-header" style="background-color: #507183;">
+        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">NEW JOB TYPE</b></span>
+        <button type="button" class="close" data-dismiss="modal" onclick="type_form_reset()">&times;</button>
+      </div>
+      <div class="modal-body" style="background-color: #d6e1e9;">
+        <form id="jobtype_submit">
+
+          <?php
+          $qry_jobid = mysqli_query($conn, "SELECT id FROM jobs_type ORDER BY id DESC LIMIT 1");
+          $get_id = mysqli_fetch_array($qry_jobid);
+          $next_id = $get_id['id']+1;
+          ?>
+
+          <div class="col-sm-12">
+            <label>Job Type No</label>
+            <input type="text" name="job_id" id="job_id" value="<?php echo $next_id; ?>" class="form-control" style="margin-bottom: 10px;"/ readonly="">
+          </div>
+          <div class="col-sm-12">
+            <label>Job Type</label>
+            <input type="text" name="job_type" id="job_type" class="form-control" style="margin-bottom: 20px;"/>
+          </div>
+              
+          <div class="col-sm-12">
+            <button type="button" id="form_type_submit" name="form_type_submit"  onclick="TypeInsert()" class="btn btn-primary" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 0px; margin-left: 1.5%;">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="snackbar"><p id="msg_view"></p></div>
+</div>
+
+<!-- modal for Add New Product-->
+<div id="myModal_product" class="modal fade">
+  <div class="modal-dialog" style="max-width: 400px;">
+    <div class="modal-content" style="height : auto;">
+      <div class="modal-header" style="background-color: #507183;">
+        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">NEW Product</b></span>
+        <button type="button" class="close" data-dismiss="modal" onclick="product_form_reset()">&times;</button>
+      </div>
+      <div class="modal-body" style="background-color: #d6e1e9;">
+        <form id="product_submit">
+
+          <?php
+          $qry_proid = mysqli_query($conn, "SELECT id FROM product ORDER BY id DESC LIMIT 1");
+          $get_id = mysqli_fetch_array($qry_proid);
+          $next_proid = $get_id['id']+1;
+          ?>
+
+          <div class="col-sm-12">
+            <label>Product No</label>
+            <input type="text" name="pro_id" id="pro_id" value="<?php echo $next_proid; ?>" class="form-control" style="margin-bottom: 10px;"/ readonly="">
+          </div>
+
+          <div class="col-sm-12">
+            <label>Select Job Type</label>
+            <SELECT name="jtype" id="jtype" class="form-control" style="margin-bottom: 10px;">
+              <option selected="" disabled="">Select Job Type</option>
+              <?php
+              $type = "SELECT *
+                        FROM jobs_type";
+
+              $result = mysqli_query($conn,$type);
+              $numRows = mysqli_num_rows($result); 
+
+                if($numRows > 0) {
+                  while($row = mysqli_fetch_assoc($result)) {
+
+                  echo '<option value = "'.$row["id"].'"> '. $row['id'] . ' | ' . $row['type'] .' </option>';
+                    
+                  }
+                }
+              ?>
+            </SELECT>
+          </div>
+
+          <div class="col-sm-12">
+            <label>Product Name</label>
+            <input type="text" name="product" id="product" class="form-control" style="margin-bottom: 20px;"/>
+          </div>
+
+          <div class="col-sm-12">
+            <button type="button" id="form_product_submit" name="form_product_submit"  onclick="ProductInsert()" class="btn btn-primary" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 0px; margin-left: 1.5%;">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="snackbar"><p id="msg_view"></p></div>
+</div>
+
+<!-- modal for Add New Product Category-->
+<div id="myModal_category" class="modal fade">
+  <div class="modal-dialog" style="max-width: 400px;">
+    <div class="modal-content" style="height : auto;">
+      <div class="modal-header" style="background-color: #507183;">
+        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">NEW Product Category</b></span>
+        <button type="button" class="close" data-dismiss="modal" onclick="category_form_reset()">&times;</button>
+      </div>
+      <div class="modal-body" style="background-color: #d6e1e9;">
+        <form id="category_submit">
+
+          <?php
+          $qry_catid = mysqli_query($conn, "SELECT id FROM category ORDER BY id DESC LIMIT 1");
+          $get_id = mysqli_fetch_array($qry_catid);
+          $next_catid = $get_id['id']+1;
+          ?>
+
+          <div class="col-sm-12">
+            <label>Category No</label>
+            <input type="text" name="cat_id" id="cat_id" value="<?php echo $next_catid; ?>" class="form-control" style="margin-bottom: 10px;"/ readonly="">
+          </div>
+
+          <div class="col-sm-12">
+            <label>Select Job Type</label>
+            <SELECT name="jptype" id="jptype" class="form-control" style="margin-bottom: 10px;">
+              <option selected="" disabled="">Select Job Type</option>
+              <?php
+              $type = "SELECT *
+                        FROM jobs_type";
+
+              $result = mysqli_query($conn,$type);
+              $numRows = mysqli_num_rows($result); 
+
+                if($numRows > 0) {
+                  while($row = mysqli_fetch_assoc($result)) {
+
+                  echo '<option value = "'.$row["type"].'"> '. $row['type'] .' </option>';
+                    
+                  }
+                }
+              ?>
+            </SELECT>
+          </div>
+
+          <div class="col-sm-12">
+            <label>Select Product</label>
+            <SELECT name="pitem" id="pitem" class="form-control" style="margin-bottom: 10px;">
+              <option selected="" disabled="">Select Job Type First</option>
+            </SELECT>
+          </div>
+
+          <div class="col-sm-12">
+            <label>Category Name</label>
+            <input type="text" name="category" id="category" class="form-control" style="margin-bottom: 20px;"/>
+          </div>
+            
+          <div class="col-sm-12">
+            <button type="button" id="form_category_submit" name="form_category_submit"  onclick="CategoryInsert()" class="btn btn-primary" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 0px; margin-left: 1.5%;">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="snackbar"><p id="msg_view"></p></div>
+</div>
 
         <div class="col-xl-4 col-sm-4 col-md-4">
           <div class="card" style="background-color: #ebebe0;">
@@ -347,3 +505,143 @@
   </div>
 </body>
 </html>
+<script>
+//////reset/////
+function type_form_reset(){
+  document.getElementById("jobtype_submit").reset();
+}
+function product_form_reset(){
+  document.getElementById("product_submit").reset();
+}
+function category_form_reset(){
+  document.getElementById("category_submit").reset();
+}
+////////////// get items ///////////////////////
+$("#jptype").on('change',function(){
+  var type = $(this).val();
+  if(type){
+    
+    $.get(
+      "../functions/get_items.php",
+      {type:type},
+      function (data) { 
+        $('#pitem').html(data);
+      }
+    );
+       
+  }else{
+    $('#pitem').html('<option>Select Job Type First</option>');
+  }
+});
+
+function TypeInsert() {
+
+  var job_id =document.getElementById('job_id').value;
+  var job_type =document.getElementById('job_type').value;
+
+  var form_type_submit =document.getElementById('form_type_submit').name;
+
+  if(job_id=='' || job_type==''){
+    alert("Required field is empty!");
+  }
+  else {
+
+   $.ajax({
+     url:"../controller/product_controller.php",
+     method:"POST",
+     data:{job_id:job_id,job_type:job_type,form_type_submit:form_type_submit},
+     success:function(data){
+
+     // Message success call function
+     myform1();
+     $('#msg_view').html(data);
+
+     }
+  });
+ }
+ }
+
+// Message success view for type insert
+function myform1() {
+   var x = document.getElementById("snackbar");
+   x.className = "show";
+   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2500);
+
+   // Location refech
+   setTimeout(function(){location.reload(); },2500);
+}
+
+function ProductInsert() {
+
+  var pro_id =document.getElementById('pro_id').value;
+  var jtype =document.getElementById('jtype').value;
+  var product =document.getElementById('product').value;
+
+  var form_product_submit =document.getElementById('form_product_submit').name;
+
+  if(pro_id=='' || jtype=='' || product==''){
+    alert("Required field is empty!");
+  }
+  else {
+
+   $.ajax({
+     url:"../controller/product_controller.php",
+     method:"POST",
+     data:{pro_id:pro_id,jtype:jtype,product:product,form_product_submit:form_product_submit},
+     success:function(data){
+
+     // Message success call function
+     myform1();
+     $('#msg_view').html(data);
+
+     }
+  });
+ }
+ }
+// Message success view for product insert
+// function myform2() {
+//    var x = document.getElementById("snackbar");
+//    x.className = "show";
+//    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2500);
+
+//    // Location refech
+//    setTimeout(function(){location.reload(); },2500);
+// }
+
+function CategoryInsert() {
+
+  var cat_id =document.getElementById('cat_id').value;
+  var pitem =document.getElementById('pitem').value;
+  var category =document.getElementById('category').value;
+
+  var form_category_submit =document.getElementById('form_category_submit').name;
+
+  if(cat_id=='' || pitem=='' || category==''){
+    alert("Required field is empty!");
+  }
+  else {
+
+   $.ajax({
+     url:"../controller/product_controller.php",
+     method:"POST",
+     data:{cat_id:cat_id,pitem:pitem,category:category,form_category_submit:form_category_submit},
+     success:function(data){
+
+     // Message success call function
+     myform1();
+     $('#msg_view').html(data);
+
+     }
+  });
+ }
+ }
+// Message success view for category insert
+// function myform3() {
+//    var x = document.getElementById("snackbar");
+//    x.className = "show";
+//    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2500);
+
+//    // Location refech
+//    setTimeout(function(){location.reload(); },2500);
+// }
+</script>
