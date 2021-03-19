@@ -21,16 +21,27 @@
        require '../include/config.php';
 
        $view_status ="design";
+       $user = $_SESSION['email'];
 
-      if(isset($_POST["query"]))
-      {
-         $search =$_POST["query"];
-         $query = "SELECT * FROM jobs WHERE state='$view_status' AND id LIKE '%".$search."%' ";
+       $qry = mysqli_query($conn ,"SELECT level FROM signup WHERE email='$user'");
 
-      }
-      else
-      {
-         $query = "SELECT * FROM jobs WHERE state='$view_status'";
+       $data = mysqli_fetch_array($qry);
+       $level= $data['level'];
+       
+
+      if(isset($_POST["query"])){
+          if($level==3){
+              $query = "SELECT * FROM jobs WHERE state='$view_status' AND designed_by='$user' ";
+          }else{
+              $query = "SELECT * FROM jobs WHERE state='$view_status'";
+          }
+          
+      }else{
+         if($level==3){
+              $query = "SELECT * FROM jobs WHERE state='$view_status' AND designed_by='$user' ";
+          }else{
+            $query = "SELECT * FROM jobs WHERE state='$view_status'";
+          }
       }
       $result = mysqli_query($conn ,$query);
 
@@ -71,9 +82,13 @@
      <td>'.$row["product"].'</td>
      <td>'.$row["material"].'</td>
      <td><button type="button" id="'.$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModaldesign" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;">View</button></td>';
-    
-      echo  '<td><button type="button"  onclick="addproduction('.$row["id"].')" class="btn btn-primary btn-sm" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;">Add To Production</button></td>';
-   
+
+     if($level==4){
+        echo  '<td><button type="button" onclick="addproduction('.$row["id"].')" class="btn btn-primary btn-sm" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;">Add To Production</button></td>';
+     }else{
+        echo  '<td><button type="button" onclick="addproduction('.$row["id"].')" class="btn btn-primary btn-sm" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;" disabled>Add To Production</button></td>';
+     }
+
     echo '</tr>';
 
     $i++;

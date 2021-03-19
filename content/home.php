@@ -123,14 +123,14 @@
       <!-- Icon Cards-->
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-primary o-hidden h-100">
+          <div class="card text-white o-hidden h-100" style="background-color: #1fb642;">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-comments"></i>
               </div>
-              <div class="mr-5"><?php echo $inre;?> Inbound Requests</div>
+              <div class="mr-5"> Create New Job</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="inbound_requests">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -139,14 +139,14 @@
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-warning o-hidden h-100">
+          <div class="card text-white o-hidden h-100" style="background-color: #e51b31;">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5"><?php echo $customer;?> Customers</div>
+              <div class="mr-5"> Billing Details</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="billing">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -155,14 +155,14 @@
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-success o-hidden h-100">
+          <div class="card text-white o-hidden h-100" style="background-color: #283fa7;">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-shopping-cart"></i>
               </div>
-              <div class="mr-5"><?php echo $product;?> Products</div>
+              <div class="mr-5"> Customer Database</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="customer">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -171,14 +171,14 @@
           </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-3">
-          <div class="card text-white bg-danger o-hidden h-100">
+          <div class="card text-white o-hidden h-100" style="background-color: #f4760f;">
             <div class="card-body">
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-support"></i>
               </div>
-              <div class="mr-5"><?php echo $user;?> Users</div>
+              <div class="mr-5"> Add Users</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="setting">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -247,15 +247,15 @@
                 </tr>
                 <tr style="border-bottom: 2px solid white;">
                   <td><a href="dispatch" style="text-decoration: none">Ready to dispatch</a></td>
-                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$dis.'</label>';?></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$dis.'</label>';?></td>
                 </tr>
                 <tr style="border-bottom: 2px solid white;">
                   <td><a href="completed" style="text-decoration: none">Completed</a></td>
-                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$com.'</label>';?></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:gray; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$com.'</label>';?></td>
                 </tr>
                 <tr>
                   <td><a href="rejected" style="text-decoration: none">Rejected</a></td>
-                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:gray; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$rej.'</label>';?></td>
+                  <td style="padding-left: 100px;"><?php echo '<label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'.$rej.'</label>';?></td>
                 </tr>
               </table>
             </div>

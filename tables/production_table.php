@@ -20,18 +20,30 @@
        // Database Connection
        require '../include/config.php';
 
-       $view_status ="production";
+      $view_status ="production";
+      $user = $_SESSION['email'];
 
-      if(isset($_POST["query"]))
-      {
-         $search =$_POST["query"];
-         $query = "SELECT * FROM jobs WHERE state='$view_status' AND id LIKE '%".$search."%' ";
+      $qry = mysqli_query($conn ,"SELECT level FROM signup WHERE email='$user'");
 
+      $data = mysqli_fetch_array($qry);
+      $level= $data['level'];
+       
+
+      if(isset($_POST["query"])){
+          if($level==4){
+              $query = "SELECT * FROM jobs WHERE state='$view_status' AND production_by='$user' ";
+          }else{
+              $query = "SELECT * FROM jobs WHERE state='$view_status'";
+          }
+          
+      }else{
+         if($level==4){
+              $query = "SELECT * FROM jobs WHERE state='$view_status' AND production_by='$user' ";
+          }else{
+            $query = "SELECT * FROM jobs WHERE state='$view_status'";
+          }
       }
-      else
-      {
-         $query = "SELECT * FROM jobs WHERE state='$view_status'";
-      }
+
       $result = mysqli_query($conn ,$query);
 
       if(mysqli_num_rows($result)>0)

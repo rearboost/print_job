@@ -128,6 +128,7 @@
            $('#product_edit').val(data['product']);
            $('#category_edit').val(data['category']);
            $('#quantity_edit').val(data['quantity']);
+           $('#unit_price_edit').val(data['unit_price']);
            $('#material_edit').val(data['material']);
            $('#size_edit').val(data['size']);
            $('#bind_edit').val(data['bind']);
@@ -198,13 +199,19 @@
               <input type="text" name="quantity_edit" id="quantity_edit" class="form-control" style="margin-bottom: 10px;"/>
             </div>
             <div class="col-sm-3">
+              <label>Unit Price</label>
+              <input type="text" name="unit_price_edit" id="unit_price_edit" class="form-control" style="margin-bottom: 10px;"/>
+            </div>
+            <div class="col-sm-3">
               <label>Material</label>
               <input type="text" name="material_edit" id="material_edit" class="form-control" style="margin-bottom: 10px;"/>
             </div>
             <div class="col-sm-3">
               <label>Size</label>
               <input type="text" name="size_edit" id="size_edit" class="form-control" style="margin-bottom: 10px;"/>
-            </div>
+            </div> 
+          </div>
+          <div class="col-sm-12" style="display: inline-flex;">
             <div class="col-sm-3">
               <label>Bind</label>
               <SELECT name="bind_edit" id="bind_edit" class="form-control" style="margin-bottom: 10px;">
@@ -214,9 +221,7 @@
                 <option value="Tape">Tape</option>
                 <option value="Hard Cover">Hard Cover</option>
               </SELECT>
-            </div>  
-          </div>
-          <div class="col-sm-12" style="display: inline-flex;">
+            </div> 
             <div class="col-sm-3">
                 <label>Color</label>
                 <input type="color" name="colour2" id="colour2" style="margin-bottom: 10px; width: 100%; height: 45%;"/>
@@ -291,6 +296,19 @@
  <script>
 
   // Calulate Amount about  to the budget
+  $("#unit_price_edit").keyup(function(){
+
+  var unit_price_edit =document.getElementById('unit_price_edit').value;
+  var quantity_edit =document.getElementById('quantity_edit').value;
+  var budget_edit = quantity_edit*unit_price_edit;
+
+  $('#budget_edit').val(budget_edit);
+  $('#rest_edit').val(budget_edit);
+  $('#discounted_edit').val(budget_edit);
+
+  });
+  ////////////////////////////////////
+
   $("#budget_edit").keyup(function(){
 
     var budget_edit =document.getElementById('budget_edit').value;
@@ -340,6 +358,7 @@
     var job_edit =document.getElementById('job_edit').value;
 
     var quantity_edit =document.getElementById('quantity_edit').value;
+    var unit_price_edit =document.getElementById('unit_price_edit').value;
     var material_edit =document.getElementById('material_edit').value;
     var size_edit =document.getElementById('size_edit').value;
     var bind_edit =document.getElementById('bind_edit').value;
@@ -368,7 +387,7 @@
        $.ajax({
          url:"../controller/inbound_requests_controller.php",
          method:"POST",
-         data:{job_edit:job_edit,quantity_edit:quantity_edit,material_edit:material_edit,size_edit:size_edit,bind_edit:bind_edit,colour_edit:colour_edit,budget_edit:budget_edit,discount_edit:discount_edit,discounted_edit:discounted_edit,ad_pay_amount_edit:ad_pay_amount_edit,rest_edit:rest_edit,date_edit:date_edit,admin_description_edit:admin_description_edit,status_edit:status_edit,from_btn_edit:from_btn_edit},
+         data:{job_edit:job_edit,quantity_edit:quantity_edit,unit_price_edit:unit_price_edit,material_edit:material_edit,size_edit:size_edit,bind_edit:bind_edit,colour_edit:colour_edit,budget_edit:budget_edit,discount_edit:discount_edit,discounted_edit:discounted_edit,ad_pay_amount_edit:ad_pay_amount_edit,rest_edit:rest_edit,date_edit:date_edit,admin_description_edit:admin_description_edit,status_edit:status_edit,from_btn_edit:from_btn_edit},
          success:function(data){
 
          // Message success call function

@@ -32,7 +32,7 @@
       <!-- <input type="text" name="search_text" id="search_text" placeholder="Search by Job ID " class="form-control  form-control-sm" style="width: 40%;"/> -->
       </div>
       <div class="col-md-2">
-        <button type="button" id="" name="" class="btn btn-primary btn-sm submit_data" data-toggle="modal" data-target="#myModal1" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px; float:right" ><font color="green"><b>+ </b></font>New Job</button>
+        <button type="button" id="" name="" class="btn btn-primary btn-sm submit_data" data-toggle="modal" data-target="#myModal1" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px; margin-right:30px; float:right" ><font color="green"><b>+ </b></font> Create New Job</button>
       </div>
       </div>
 
@@ -109,6 +109,10 @@
                   <div class="col-sm-3">
                     <label>Quantity</label>
                     <input type="text" name="qty" id="qty" class="form-control" style="margin-bottom: 10px;"/>
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Unit Price</label>
+                    <input type="text" name="unit_price" id="unit_price" class="form-control" style="margin-bottom: 10px;"/>
                   </div>
                   <div class="col-sm-3" id="material1">
                     <label >Material</label>
@@ -305,6 +309,18 @@ $(document).ready(function(){
 });
 
 ///////////////calculate the budget ///////////////////
+$("#unit_price").keyup(function(){
+
+  var unit_price =document.getElementById('unit_price').value;
+  var qty =document.getElementById('qty').value;
+  var budget = qty*unit_price;
+
+  $('#budget').val(budget);
+  $('#rest').val(budget);
+  $('#discounted').val(budget);
+
+});
+/////////////////////////////////////////////////////
 $("#budget").keyup(function(){
 
   var budget =document.getElementById('budget').value;
@@ -390,6 +406,7 @@ function FormInsert() {
   var category =document.getElementById('category').value;
 
   var qty =document.getElementById('qty').value;
+  var unit_price =document.getElementById('unit_price').value;
   var material =document.getElementById('material').value;
   var size =document.getElementById('size').value;
   var bind =document.getElementById('bind').value;
@@ -406,7 +423,7 @@ function FormInsert() {
 
   var form_btn_submit =document.getElementById('form_btn_submit').name;
 
-  if(customer=='' || item=='' || budget=='' || discount=='' || ad_pay_amount=='' || rest=='' || date==''){
+  if(customer=='' || item=='' || qty=='' || unit_price=='' || budget=='' || discount=='' || ad_pay_amount=='' || rest=='' || date==''){
     alert("Required field is empty!");
   }
   else {
@@ -414,7 +431,7 @@ function FormInsert() {
    $.ajax({
      url:"../controller/inbound_requests_controller.php",
      method:"POST",
-     data:{cust_id:cust_id,customer:customer,contact:contact,address:address,channel:channel,type:type,item:item,category:category,qty:qty,material:material,size:size,bind:bind,color:color,budget:budget,discount:discount,discounted:discounted,ad_pay_amount:ad_pay_amount,rest:rest,date:date,admin_description:admin_description,form_btn_submit:form_btn_submit},
+     data:{cust_id:cust_id,customer:customer,contact:contact,address:address,channel:channel,type:type,item:item,category:category,qty:qty,unit_price:unit_price,material:material,size:size,bind:bind,color:color,budget:budget,discount:discount,discounted:discounted,ad_pay_amount:ad_pay_amount,rest:rest,date:date,admin_description:admin_description,form_btn_submit:form_btn_submit},
      success:function(data){
 
      // Message success call function

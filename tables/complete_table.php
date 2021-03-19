@@ -120,6 +120,7 @@
            $('#product_edit').val(data['product']);
            $('#category_edit').val(data['category']);
            $('#quantity_edit').val(data['quantity']);
+           $('#unit_price_edit').val(data['unit_price']);
            $('#material_edit').val(data['material']);
            $('#size_edit').val(data['size']);
            $('#bind_edit').val(data['bind']);
@@ -210,13 +211,19 @@
                 <input type="text" name="quantity_edit" id="quantity_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
               </div>
               <div class="col-sm-3">
+                <label>Unit Price</label>
+                <input type="text" name="unit_price_edit" id="unit_price_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
+              </div>
+              <div class="col-sm-3">
                 <label>Material</label>
                 <input type="text" name="material_edit" id="material_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
               </div>
               <div class="col-sm-3">
                 <label>Size</label>
                 <input type="text" name="size_edit" id="size_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
-              </div>
+              </div> 
+            </div>
+            <div class="col-sm-12" style="display: inline-flex;">
               <div class="col-sm-3">
                 <label>Bind</label>
                 <SELECT name="bind_edit" id="bind_edit" class="form-control" style="margin-bottom: 10px;" disabled>
@@ -226,9 +233,7 @@
                   <option value="Tape">Tape</option>
                   <option value="Hard Cover">Hard Cover</option>
                 </SELECT>
-              </div>  
-            </div>
-            <div class="col-sm-12" style="display: inline-flex;">
+              </div> 
               <div class="col-sm-3">
                   <label>Color</label>
                   <input type="color" name="colour2" id="colour2" style="margin-bottom: 10px; width: 100%; height: 45%;"/>

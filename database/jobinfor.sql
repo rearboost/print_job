@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2021 at 12:54 AM
+-- Generation Time: Mar 19, 2021 at 01:37 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.30
 
@@ -122,6 +122,7 @@ CREATE TABLE `jobs` (
   `user_description` varchar(250) NOT NULL,
   `date` date NOT NULL,
   `quantity` decimal(10,2) NOT NULL,
+  `unit_price` decimal(10,2) NOT NULL,
   `budget` decimal(10,2) NOT NULL,
   `discount` decimal(10,2) NOT NULL,
   `discounted` decimal(10,2) NOT NULL,
@@ -147,17 +148,17 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`, `category`, `material`, `size`, `bind`, `colour`, `user_description`, `date`, `quantity`, `budget`, `discount`, `discounted`, `ad_pay_amount`, `rest`, `admin_description`, `state`, `accepted_by`, `designed_by`, `production_by`, `checked_by`, `failed_reason`, `cash`, `change_amt`, `payment`, `dispatch_day`, `dispatch_year`, `dispatch_month`, `dispatched_by`) VALUES
-(1, '202103160315141', 'amali senadheera', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', '', '2021-03-06', '3.00', '900.00', '0.00', '900.00', '200.00', '700.00', '100 pages for each', 'production', 'admin@gmail.com', 'user@gmail.com', 'production@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(2, '202103160318292', 'Rashini Amanda', 'DIR', 'Design', 'Logo Design', 'Starter Package', '', 'small', 'None', '#f81616\n#1678f8\n#ffffff\n#ddd60e\n', '', '2021-03-10', '1.00', '3500.00', '5.00', '3325.00', '1000.00', '0.00', 'only design', 'complete', 'admin@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'admin@gmail.com', '', '2500.00', '175.00', '2325.00', '2021-03-17', '2021', '03', 'cashier@gmail.com'),
-(3, '202103160221343', 'S.R.I Sandamali', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'medium', 'None', '#02a72b\n#ffffff\n#000000\n', '', '2021-03-12', '150.00', '10000.00', '2.00', '9800.00', '3500.00', '6300.00', 'With design', 'design', 'admin@gmail.com', 'designer@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(4, '202103160426004', 'sandaru maleesha', 'EXP', 'Others', 'printout', 'No categories available', '', '', 'None', '', '', '2021-03-16', '25.00', '750.00', '0.00', '750.00', '250.00', '500.00', 'Color printouts. immediately', 'reject', 'user@gmail.com', 'admin@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(5, '202103160436555', 'Amandi perera', 'DIR', 'Digital printing', 'Banner', 'No categories available', '', 'large', 'None', '#c20a54\n#120209\n#ffffff', '', '2021-03-16', '2.00', '12500.00', '5.00', '11875.00', '4000.00', '7875.00', 'with design', 'QA', 'user@gmail.com', 'designer@gmail.com', 'production@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(6, '202103180346376', 'Rajitha Nuwan', 'DIR', 'Design', 'Poster', 'No categories available', '', '', 'None', '', '', '2021-03-17', '1.00', '1500.00', '0.00', '1500.00', '500.00', '1000.00', '', 'design', 'cashier@gmail.com', 'user@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(7, '202103180348507', 'Imashi Liyanage', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', '', '2021-03-17', '5.00', '1500.00', '0.00', '1500.00', '0.00', '1500.00', '100 pages for each set', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(8, '202103180357018', 'M.G perera', 'DIR', 'Design', 'Ticket', 'No categories available', '', '', 'Tape', '#ffffff\n#000000\n', '', '2021-03-17', '150.00', '2250.00', '0.00', '2250.00', '1500.00', '750.00', '', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(9, '202103180402589', 'Malinda perera', 'EXP', 'Others', 'printout', 'No categories available', '', '', 'None', '', '', '2021-03-17', '25.00', '750.00', '2.00', '735.00', '0.00', '735.00', 'colored printouts', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(10, '2021031804301310', 'chameera senadheera', 'DIR', 'Design', 'Business Card', 'Double side', 'shine card', 'small', 'None', '#8a0505\n#100e0e\n', '', '2021-03-17', '200.00', '5000.00', '0.00', '5000.00', '1000.00', '4000.00', '', 'dispatch', 'cashier@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'cashier@gmail.com', '', '0.00', '0.00', '0.00', '', '', '', '');
+INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`, `category`, `material`, `size`, `bind`, `colour`, `user_description`, `date`, `quantity`, `unit_price`, `budget`, `discount`, `discounted`, `ad_pay_amount`, `rest`, `admin_description`, `state`, `accepted_by`, `designed_by`, `production_by`, `checked_by`, `failed_reason`, `cash`, `change_amt`, `payment`, `dispatch_day`, `dispatch_year`, `dispatch_month`, `dispatched_by`) VALUES
+(1, '202103160315141', 'amali senadheera', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', '', '2021-03-06', '3.00', '0.00', '900.00', '0.00', '900.00', '200.00', '700.00', '100 pages for each', 'production', 'admin@gmail.com', 'user@gmail.com', 'production@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(2, '202103160318292', 'Rashini Amanda', 'DIR', 'Design', 'Logo Design', 'Starter Package', '', 'small', 'None', '#f81616\n#1678f8\n#ffffff\n#ddd60e\n', '', '2021-03-10', '1.00', '0.00', '3500.00', '5.00', '3325.00', '1000.00', '0.00', 'only design', 'complete', 'admin@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'admin@gmail.com', '', '2500.00', '175.00', '2325.00', '2021-03-17', '2021', '03', 'cashier@gmail.com'),
+(3, '202103160221343', 'S.R.I Sandamali', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'medium', 'None', '#02a72b\n#ffffff\n#000000\n', '', '2021-03-12', '150.00', '0.00', '10000.00', '2.00', '9800.00', '3500.00', '6300.00', 'With design', 'production', 'admin@gmail.com', 'designer@gmail.com', 'pubudu@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(4, '202103160426004', 'sandaru maleesha', 'EXP', 'Others', 'printout', 'No categories available', '', '', 'None', '', '', '2021-03-16', '25.00', '0.00', '750.00', '0.00', '750.00', '250.00', '500.00', 'Color printouts. immediately', 'reject', 'user@gmail.com', 'admin@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(5, '202103160436555', 'Amandi perera', 'DIR', 'Digital printing', 'Banner', 'No categories available', '', 'large', 'None', '#c20a54\n#120209\n#ffffff', '', '2021-03-16', '2.00', '0.00', '12500.00', '5.00', '11875.00', '4000.00', '7875.00', 'with design', 'QA', 'user@gmail.com', 'designer@gmail.com', 'production@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(6, '202103180346376', 'Rajitha Nuwan', 'DIR', 'Design', 'Poster', 'No categories available', '', '', 'None', '', '', '2021-03-17', '1.00', '0.00', '1500.00', '0.00', '1500.00', '500.00', '1000.00', '', 'design', 'cashier@gmail.com', 'user@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(7, '202103180348507', 'Imashi Liyanage', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', '', '2021-03-17', '5.00', '0.00', '1500.00', '0.00', '1500.00', '0.00', '1500.00', '100 pages for each set', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(8, '202103180357018', 'M.G perera', 'DIR', 'Design', 'Ticket', 'No categories available', '', '', 'Tape', '#ffffff\n#000000\n', '', '2021-03-17', '150.00', '0.00', '2250.00', '0.00', '2250.00', '1500.00', '750.00', '', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(9, '202103180402589', 'Malinda perera', 'EXP', 'Others', 'printout', 'No categories available', '', '', 'None', '', '', '2021-03-17', '25.00', '0.00', '750.00', '2.00', '735.00', '0.00', '735.00', 'colored printouts', 'request', 'cashier@gmail.com', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
+(10, '2021031804301310', 'chameera senadheera', 'DIR', 'Design', 'Business Card', 'Double side', 'shine card', 'small', 'None', '#8a0505\n#100e0e\n', '', '2021-03-17', '200.00', '0.00', '5000.00', '0.00', '5000.00', '1000.00', '4000.00', '', 'dispatch', 'cashier@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'cashier@gmail.com', '', '0.00', '0.00', '0.00', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -444,7 +445,8 @@ INSERT INTO `signup` (`id`, `email`, `password`, `level`) VALUES
 (2, 'user@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 2),
 (3, 'cashier@gmail.com', '6ac2470ed8ccf204fd5ff89b32a355cf', 2),
 (4, 'designer@gmail.com', '230ace927da4bb74817fa22adc663e0a', 3),
-(5, 'production@gmail.com', 'fd89784e59c72499525556f80289b2c7', 4);
+(5, 'production@gmail.com', 'fd89784e59c72499525556f80289b2c7', 4),
+(6, 'pubudu@gmail.com', '1b1f881749f75e4c45ccdb37af1f1cc6', 4);
 
 -- --------------------------------------------------------
 
@@ -570,7 +572,7 @@ ALTER TABLE `product_type`
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user_level`
 --

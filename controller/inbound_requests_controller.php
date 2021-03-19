@@ -46,6 +46,7 @@
         $job_edit =mysqli_real_escape_string($conn ,$_POST['job_edit']);
 
         $quantity_edit =mysqli_real_escape_string($conn ,$_POST['quantity_edit']);
+        $unit_price_edit =mysqli_real_escape_string($conn ,$_POST['unit_price_edit']);
         $material_edit =mysqli_real_escape_string($conn ,$_POST['material_edit']);
         $size_edit =mysqli_real_escape_string($conn ,$_POST['size_edit']);
         $bind_edit =mysqli_real_escape_string($conn ,$_POST['bind_edit']);
@@ -65,7 +66,7 @@
 
         $design_by= $_SESSION['email']; 
 
-        $query ="UPDATE  jobs  SET material=?,size=?,bind=?,colour=?,date=?,quantity=?,budget=?,discount=?,discounted=?,ad_pay_amount=?,rest=?,admin_description=?,state=?,designed_by=? WHERE id=?;";
+        $query ="UPDATE  jobs  SET material=?,size=?,bind=?,colour=?,date=?,quantity=?,unit_price=?,budget=?,discount=?,discounted=?,ad_pay_amount=?,rest=?,admin_description=?,state=?,designed_by=? WHERE id=?;";
 
         $stmt =mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$query))
@@ -74,7 +75,7 @@
         }
         else
         {
-            mysqli_stmt_bind_param($stmt,"sssssssssssssss",$material_edit,$size_edit,$bind_edit,$colour_edit,$date_edit,$quantity_edit,$budget_edit,$discount_edit,$discounted_edit,$ad_pay_amount_edit,$rest_edit,$admin_description_edit,$status_edit,$design_by,$job_edit);
+            mysqli_stmt_bind_param($stmt,"ssssssssssssssss",$material_edit,$size_edit,$bind_edit,$colour_edit,$date_edit,$quantity_edit,$unit_price_edit,$budget_edit,$discount_edit,$discounted_edit,$ad_pay_amount_edit,$rest_edit,$admin_description_edit,$status_edit,$design_by,$job_edit);
             $result =  mysqli_stmt_execute($stmt);
             if($result){
               echo "Successfull! pushed to Design Section";
@@ -96,6 +97,7 @@
     $category =mysqli_real_escape_string($conn ,$_POST['category']);
 
     $qty =mysqli_real_escape_string($conn ,$_POST['qty']);
+    $unit_price =mysqli_real_escape_string($conn ,$_POST['unit_price']);
     $material =mysqli_real_escape_string($conn ,$_POST['material']);
     $size =mysqli_real_escape_string($conn ,$_POST['size']);
     $bind =mysqli_real_escape_string($conn ,$_POST['bind']);
@@ -128,12 +130,12 @@
 
     if($cust_id=='')
     {
-        $customer_insert = mysqli_query($conn, "INSERT INTO customer (customer_name,contact,address) VALUES ('$customer','$contact','$address')");
+      $customer_insert = mysqli_query($conn, "INSERT INTO customer (customer_name,contact,address) VALUES ('$customer','$contact','$address')");
 
-        $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,  category,material,size,bind,colour,date,quantity,budget,discount,discounted,ad_pay_amount,rest,admin_description,state, accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
+      $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,category,material,size,bind,colour,date,quantity,unit_price,budget,discount,discounted,ad_pay_amount,rest,admin_description,state, accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$unit_price',$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
 
     }else{
-         $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,  category,material,size,bind,colour,date,quantity,budget,discount,discounted,ad_pay_amount,rest,admin_description,state, accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
+      $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,category,material,size,bind,colour,date,quantity,unit_price,budget,discount,discounted,ad_pay_amount,rest,admin_description,state, accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$unit_price',$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
         
     }
     if($job_insert){

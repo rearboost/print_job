@@ -51,8 +51,19 @@
      <th>ACCEPTED DATE</th>
      <th>STATUS</th>
      <th></th>
-     <!-- <th></th> -->
-     <!--td style="width: 5%;"><a href="../controller/jobs_controller?j_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td-->
+     <?php
+     $user = $_SESSION['email'];
+     $qry = mysqli_query($conn ,"SELECT level FROM signup WHERE email='$user'");
+
+     $data = mysqli_fetch_array($qry);
+     $level= $data['level'];
+     if($level==1 || $level==2){
+      echo '<th></th>';
+     }else{
+      echo '<th hidden=""></th>';
+     }
+
+     ?>
     </tr>
    </thead>
    <tbody>
@@ -68,7 +79,7 @@
      <td>'.$row["date"].'</td>';
      if($row["state"]=="request"){
         echo 
-        '<td> <center> <label class="btn-sm" style="background-color:green; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."REQUEST".'</label></center></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:green; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."NEW".'</label></center></td>';
 
      // }else if($row["state"]=="design" || $row["state"]=="production" || $row["state"]=="QA"){
      }else if($row["state"]=="design"){
@@ -77,29 +88,33 @@
 
      }else if($row["state"]=="production"){
         echo 
-        '<td> <center> <label class="btn-sm" style="background-color:#00a3cc; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."PRODUCTION".'</label></center></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:orange; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."PRODUCTION".'</label></center></td>';
         
      }else if($row["state"]=="QA"){
         echo 
-        '<td> <center> <label class="btn-sm" style="background-color:orange; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."QA".'</label></center></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:#00a3cc; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."QA".'</label></center></td>';
 
      }else if($row["state"]=="dispatch"){
         echo 
-        '<td> <center> <label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."DISPATCH".'</label></center></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."DISPATCH".'</label></center></td>';
 
      }else if($row["state"]=="complete"){
         echo 
-        '<td> <center> <label class="btn-sm" style="background-color:blue; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."COMPLETE".'</label></center></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:gray; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."COMPLETE".'</label></center></td>';
 
      }else if($row["state"]=="reject"){
         echo 
-        '<td> <center> <label class="btn-sm" style="background-color:gray; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."REJECT".'</label></center></td>';
+        '<td> <center> <label class="btn-sm" style="background-color:red; border: 0px; color: #ffffff; font-size: 12px; padding-top: 0px;">'."REJECT".'</label></center></td>';
      }
     echo '
-      <td><button type="button"  id="' .$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModaljobs" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px;">View</button></td>
-
-
-    </tr>
+      <td><button type="button"  id="' .$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModaljobs" style="background-color: transparent; border: 0px; color: #007bff; font-size: 16px; padding-top: 0px;">View</button></td>';
+     
+    if($level==1 || $level==2){
+      echo '<td style="width: 5%;"><a href="../controller/jobs_controller?j_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td>';
+    }else{
+      echo '<td style="width: 5%;" hidden><a href="../controller/jobs_controller?j_delete_id='.$row["id"].'" onclick="confirmation(event)">Delete</a></td>';
+    }
+    '</tr>
      ';
     $i++;
    }
@@ -152,6 +167,7 @@
            $('#product_edit').val(data['product']);
            $('#category_edit').val(data['category']);
            $('#quantity_edit').val(data['quantity']);
+           $('#unit_price_edit').val(data['unit_price']);
            $('#material_edit').val(data['material']);
            $('#size_edit').val(data['size']);
            $('#bind_edit').val(data['bind']);
@@ -237,13 +253,19 @@
                 <input type="text" name="quantity_edit" id="quantity_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
               </div>
               <div class="col-sm-3">
+                <label>Unit Price</label>
+                <input type="text" name="unit_price_edit" id="unit_price_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
+              </div>
+              <div class="col-sm-3">
                 <label>Material</label>
                 <input type="text" name="material_edit" id="material_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
               </div>
               <div class="col-sm-3">
                 <label>Size</label>
                 <input type="text" name="size_edit" id="size_edit" class="form-control" style="margin-bottom: 10px;" disabled/>
-              </div>
+              </div> 
+            </div>
+            <div class="col-sm-12" style="display: inline-flex;">
               <div class="col-sm-3">
                 <label>Bind</label>
                 <SELECT name="bind_edit" id="bind_edit" class="form-control" style="margin-bottom: 10px;" disabled>
@@ -253,9 +275,7 @@
                   <option value="Tape">Tape</option>
                   <option value="Hard Cover">Hard Cover</option>
                 </SELECT>
-              </div>  
-            </div>
-            <div class="col-sm-12" style="display: inline-flex;">
+              </div> 
               <div class="col-sm-3">
                   <label>Color</label>
                   <input type="color" name="colour2" id="colour2" style="margin-bottom: 10px; width: 100%; height: 45%;"/>
