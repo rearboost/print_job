@@ -66,22 +66,26 @@
       // username and password sent from form
         $email = $_POST['email'];
 
-
-
         $password = $_POST['password'];
         $password =md5($password);
 
          $sql ="SELECT * FROM signup WHERE email ='$email' and password ='$password'";
          $result=mysqli_query($conn,$sql);
          $count =mysqli_num_rows($result); // if uname/pass correct it returns must be 1 row
+         $row = mysqli_fetch_array($result);
 
          if($count == 1 )
           {
              session_regenerate_id();
+             $_SESSION['level'] = $row['level'];
              $_SESSION['email'] = $email;
              session_write_close();
-             header('Location: content/home.php');
 
+             if($row['level']==3 || $row['level']==4){
+              header('Location: content/jobs.php');
+             }else{
+              header('Location: content/home.php');
+             }
          }
          else
          {
