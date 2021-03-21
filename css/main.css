@@ -1,86 +1,118 @@
 .ui.two.cards {
-    margin-left: -1em;
-    margin-right: -1em;
+  margin-left: -1em;
+  margin-right: -1em;
 }
 .ui.cards {
-
-    display: flex;
-    margin: -0.875em -0.5em;
-    flex-wrap: wrap;
+  display: flex;
+  margin: -0.875em -0.5em;
+  flex-wrap: wrap;
 }
 .ui.two.cards > .card {
-    width: calc( 50% - 2em );
-    margin-left: 1em;
-    margin-right: 1em;
+  width: calc(50% - 2em);
+  margin-left: 1em;
+  margin-right: 1em;
 }
-.ui.blue.cards > .card, .ui.cards > .blue.card, .ui.blue.card {
-    box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #2185D0, 0px 1px 3px 0px #D4D4D5;
+.ui.blue.cards > .card,
+.ui.cards > .blue.card,
+.ui.blue.card {
+  box-shadow: 0px 0px 0px 1px #d4d4d5, 0px 2px 0px 0px #2185d0,
+    0px 1px 3px 0px #d4d4d5;
 }
-.ui.cards > .card, .ui.card {
-    max-width: 100%;
-    position: relative;
+.ui.cards > .card,
+.ui.card {
+  max-width: 100%;
+  position: relative;
 
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    min-height: 0px;
-    background: #FFFFFF;
-    padding: 0em;
-    border: none;
-    border-radius: 0.28571429rem;
-
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  min-height: 0px;
+  background: #ffffff;
+  padding: 0em;
+  border: none;
+  border-radius: 0.28571429rem;
 }
-.ui.cards > .card > .image, .ui.card > .image {
-    position: relative;
-    display: block;
-    -webkit-box-flex: 0;
+.ui.cards > .card > .image,
+.ui.card > .image {
+  position: relative;
+  display: block;
+  -webkit-box-flex: 0;
 
-    flex: 0 0 auto;
-    padding: 0em;
-    background: rgba(0, 0, 0, 0.05);
+  flex: 0 0 auto;
+  padding: 0em;
+  background: rgba(0, 0, 0, 0.05);
 }
-
 
 /* snackbar css strat */
 #snackbar {
-visibility: hidden;
-min-width: 250px;
-margin-left: -125px;
-background-color: #333;
-color: #fff;
-text-align: center;
-border-radius: 2px;
-padding: 16px;
-position: fixed;
-z-index: 1;
-left: 50%;
-bottom: 30px;
-font-size: 17px;
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
 }
 
 #snackbar.show {
-visibility: visible;
--webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 @-webkit-keyframes fadein {
-from {bottom: 0; opacity: 0;}
-to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-from {bottom: 0; opacity: 0;}
-to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-from {bottom: 30px; opacity: 1;}
-to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-from {bottom: 30px; opacity: 1;}
-to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 /* snackbar css end */
+.pointer {
+  cursor: pointer;
+  background-color: #eee;
+  height: 90px;
+  overflow: auto;
+}

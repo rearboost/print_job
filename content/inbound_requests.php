@@ -50,6 +50,7 @@
                   <div class="col-sm-4" style="float: right;">
                     <label>Customer</label>
                     <input type="text" name="customer_name" id="customer_name" class="form-control view_customer" style="margin-bottom: 10px;"/>
+                    <div id="customerList"></div>
                     <input type="hidden" name="customer_id" id="customer_id" class="form-control view_customer" style="margin-bottom: 10px;"/>
                   </div>
                   <div class="col-sm-4">
@@ -306,6 +307,45 @@ $(document).ready(function(){
     }
   });
 
+  $('#customer_name').on('keyup', function() {
+
+      var customer  = $('#customer_name').val();
+
+      $.ajax({
+        url: '../functions/get_customer.php',
+        method:"POST",
+        data:{customer:customer},
+        success: function (response) {
+
+            $('#customerList').fadeIn();
+            $('#customerList').html(response);
+        }
+      });
+  });
+
+   $(document).on('click', 'li', function(){  
+        $('#customer_name').val($(this).text());  
+        $('#customerList').fadeOut();  
+
+        $.ajax({
+            url: '../functions/get_customer.php',
+            method:"POST",
+            data:{customerName:$(this).text()},
+            success: function (response) {
+
+              var obj = JSON.parse(response);
+
+              var cust_id   =  obj.cust_id
+              var contact   =  obj.contact
+              var address   =  obj.address
+
+              $('#customer_id').val(cust_id);
+              $('#customer_contact').val(contact);
+              $('#customer_address').val(address);
+            }
+      });
+   });  
+
 });
 
 ///////////////calculate the budget ///////////////////
@@ -358,29 +398,6 @@ $('#ad_pay_amount').keyup(function(){
 });
 
 
-$('#customer_name').on('keyup', function() {
-
-  var customer  = $('#customer_name').val();
-
-  $.ajax({
-    url: '../functions/get_customer.php',
-    method:"POST",
-    data:{customer:customer},
-    success: function (response) {
-      // alert(customer)
-      var obj = JSON.parse(response);
-
-      var cust_id   =  obj.cust_id
-      var contact   =  obj.contact
-      var address   =  obj.address
-
-      $('#customer_id').val(cust_id);
-      $('#customer_contact').val(contact);
-      $('#customer_address').val(address);
-    }
-  });
-});
-
 ////////////////Form reset when close the form//////////////////////
 
 function form_reset(){
@@ -423,8 +440,8 @@ function FormInsert() {
 
   var form_btn_submit =document.getElementById('form_btn_submit').name;
 
-  if(customer=='' || item=='' || qty=='' || unit_price=='' || budget=='' || discount=='' || ad_pay_amount=='' || rest=='' || date==''){
-    alert("Required field is empty!");
+  if(customer=='' || item=='' || qty=='' || unit_price=='' || budget=='' || ad_pay_amount=='' || rest=='' || date==''){
+       alert("Required field is empty!");
   }
   else {
 
@@ -434,9 +451,9 @@ function FormInsert() {
      data:{cust_id:cust_id,customer:customer,contact:contact,address:address,channel:channel,type:type,item:item,category:category,qty:qty,unit_price:unit_price,material:material,size:size,bind:bind,color:color,budget:budget,discount:discount,discounted:discounted,ad_pay_amount:ad_pay_amount,rest:rest,date:date,admin_description:admin_description,form_btn_submit:form_btn_submit},
      success:function(data){
 
-     // Message success call function
-     myformorder();
-     $('#msg_view').html(data);
+      // Message success call function
+       myformorder();
+       $('#msg_view').html(data);
 
      }
   });
