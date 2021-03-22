@@ -31,14 +31,15 @@
 
       if(isset($_POST["query"])){
           if($level==4){
-              $query = "SELECT * FROM jobs WHERE state='$view_status' AND production_by='$user' ";
+              $query = "SELECT * FROM jobs WHERE state='$view_status'";
           }else{
               $query = "SELECT * FROM jobs WHERE state='$view_status'";
           }
           
       }else{
          if($level==4){
-              $query = "SELECT * FROM jobs WHERE state='$view_status' AND production_by='$user' ";
+              $query = "SELECT * FROM jobs WHERE state='$view_status'";
+              // $query = "SELECT * FROM jobs WHERE state='$view_status' AND production_by='$user' ";
           }else{
             $query = "SELECT * FROM jobs WHERE state='$view_status'";
           }

@@ -77,7 +77,7 @@
           <span class="nav-link-text">Jobs in Progress</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseComponents1">
-            <?php if ($_SESSION["level"]== 1 ||  $_SESSION["level"]== 2 || $_SESSION["level"]== 3 || $_SESSION["level"]== 4): ?>
+            <?php if ($_SESSION["level"]== 1 ||  $_SESSION["level"]== 2 || $_SESSION["level"]== 3): ?>
             <li>
               <a href="design">Design</a>
             </li>
@@ -155,7 +155,7 @@
 
       <?php endif ?>
 
-      <?php if ($_SESSION["level"]== 1 ||  $_SESSION["level"]== 2): ?>
+      <?php if ($_SESSION["level"]== 1): ?>
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
         <a class="nav-link" href="setting">

@@ -9,7 +9,7 @@
         $addqa_id = $_POST['addqa_job_edit'];
         $newstatus ="QA";
 
-        $query ="UPDATE  jobs  SET state=?  WHERE id=?;";
+        $query ="UPDATE  jobs  SET state=?, production_by=?  WHERE id=?;";
 
         $stmt =mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$query))
@@ -18,7 +18,7 @@
         }
         else
         {
-            mysqli_stmt_bind_param($stmt,"ss",$newstatus,$addqa_id);
+            mysqli_stmt_bind_param($stmt,"sss",$newstatus,$_SESSION['email'],$addqa_id);
             $result =  mysqli_stmt_execute($stmt);
             if($result){
               echo "Success! Add To Quality Check";

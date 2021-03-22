@@ -10,7 +10,7 @@
         $addp_id = $_POST['addproduction_job_edit'];
         $newstatus ="production";
 
-        $query ="UPDATE  jobs  SET state=?, production_by=?  WHERE id=?;";
+        $query ="UPDATE  jobs  SET state=?  WHERE id=?;";
 
         $stmt =mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$query))
@@ -19,7 +19,7 @@
         }
         else
         {
-            mysqli_stmt_bind_param($stmt,"sss",$newstatus,$_SESSION['email'],$addp_id);
+            mysqli_stmt_bind_param($stmt,"ss",$newstatus,$addp_id);
             $result =  mysqli_stmt_execute($stmt);
             if($result){
               echo "Success! Add To Production";

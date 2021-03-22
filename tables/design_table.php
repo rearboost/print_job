@@ -83,11 +83,11 @@
      <td>'.$row["material"].'</td>
      <td><button type="button" id="'.$row["id"].'" name="'.$row["id"].'" class="btn btn-primary btn-sm view_data" data-toggle="modal" data-target="#myModaldesign" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;">View</button></td>';
 
-     if($level==4){
+     // if($level==4){
         echo  '<td><button type="button" onclick="addproduction('.$row["id"].')" class="btn btn-primary btn-sm" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;">Add To Production</button></td>';
-     }else{
-        echo  '<td><button type="button" onclick="addproduction('.$row["id"].')" class="btn btn-primary btn-sm" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;" disabled>Add To Production</button></td>';
-     }
+     // }else{
+     //    echo  '<td><button type="button" onclick="addproduction('.$row["id"].')" class="btn btn-primary btn-sm" style="border: 0px; color: #ffffff; font-size: 14px; padding-top: 1px;" disabled>Add To Production</button></td>';
+     // }
 
     echo '</tr>';
 
