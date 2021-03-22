@@ -132,10 +132,10 @@
     {
       $customer_insert = mysqli_query($conn, "INSERT INTO customer (customer_name,contact,address) VALUES ('$customer','$contact','$address')");
 
-      $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,category,material,size,bind,colour,date,quantity,unit_price,budget,discount,discounted,ad_pay_amount,rest,admin_description,state, accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$unit_price',$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
+      $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,category,material,size,bind,colour,date,quantity,unit_price,budget,discount,discounted,ad_pay_amount,rest,admin_description,state,accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$unit_price','$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
 
     }else{
-      $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,category,material,size,bind,colour,date,quantity,unit_price,budget,discount,discounted,ad_pay_amount,rest,admin_description,state, accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$unit_price',$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
+      $job_insert = mysqli_query($conn, "INSERT INTO jobs (job_no,customer,channel,job_type,product,category,material,size,bind,colour,date,quantity,unit_price,budget,discount,discounted,ad_pay_amount,rest,admin_description,state,accepted_by) VALUES ('$job_no','$customer','$channel','$type','$item','$category','$material','$size','$bind','$color','$date','$qty','$unit_price','$budget','$discount','$discounted','$ad_pay_amount','$rest','$admin_description','$status','$by')");
         
     }
     if($job_insert){

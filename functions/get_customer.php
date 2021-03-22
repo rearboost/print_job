@@ -33,9 +33,7 @@
 		$contact	 = $data['contact'];
 		$address	 = $data['address'];
 
-		$myObj->cust_id  = $cust_id;
-		$myObj->contact  = $contact;
-		$myObj->address  = $address;
+		$myObj = array("cust_id"=>$cust_id, "contact"=>$contact, "address"=>$address);
 		
 		$myJSON = json_encode($myObj);
 

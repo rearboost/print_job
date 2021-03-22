@@ -440,7 +440,7 @@ function FormInsert() {
 
   var form_btn_submit =document.getElementById('form_btn_submit').name;
 
-  if(customer=='' || item=='' || qty=='' || unit_price=='' || budget=='' || ad_pay_amount=='' || rest=='' || date==''){
+  if(customer=='' || item=='' || qty=='' || unit_price=='' || budget=='' ||ad_pay_amount=='' || rest=='' || date==''){
        alert("Required field is empty!");
   }
   else {

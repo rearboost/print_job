@@ -380,7 +380,7 @@
 
 
   if(status_editcheck==''){
-    alert("Status Filed is Required");
+    alert("Status Filled is Required");
   }
   else {
 
