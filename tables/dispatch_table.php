@@ -395,7 +395,7 @@
 
      
      //// Location refech
-     setTimeout(function(){window.open('../tables/invoice_print?id='+printId, '_blank'); }, 2500);
+     setTimeout(function(){window.open('../tables/invoice_print?id='+printId, '_blank'); }, 1000);
      setTimeout(function(){location.reload(); },2500);
  }
 
