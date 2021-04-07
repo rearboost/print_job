@@ -208,19 +208,19 @@
                 </tr>
                 <tr style="border-bottom: 2px solid white;">
                   <td>
-                    <a href="customer" style="text-decoration: none" data-toggle="modal" data-target="#myModal_type">
+                    <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal_type">
                     <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> Add New Job Type</a>
                   </td>
                 </tr>
                 <tr style="border-bottom: 2px solid white;">
                   <td>
-                    <a href="billing" style="text-decoration: none" data-toggle="modal" data-target="#myModal_product">
+                    <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal_product">
                     <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> Add New Product</a>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <a href="setting" style="text-decoration: none" data-toggle="modal" data-target="#myModal_category">
+                    <a href="#" style="text-decoration: none" data-toggle="modal" data-target="#myModal_category">
                     <i class="fa fa-hand-o-right" style="margin-right: 10px;"></i> Add new Category</a>
                   </td>
                 </tr>
@@ -270,7 +270,7 @@
   <div class="modal-dialog" style="max-width: 400px;">
     <div class="modal-content" style="height : auto;">
       <div class="modal-header" style="background-color: #507183;">
-        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">NEW Product</b></span>
+        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">NEW PRODUCT</b></span>
         <button type="button" class="close" data-dismiss="modal" onclick="product_form_reset()">&times;</button>
       </div>
       <div class="modal-body" style="background-color: #d6e1e9;">
@@ -329,7 +329,7 @@
   <div class="modal-dialog" style="max-width: 400px;">
     <div class="modal-content" style="height : auto;">
       <div class="modal-header" style="background-color: #507183;">
-        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">NEW Product Category</b></span>
+        <span style="font-size: 23px; font-family: monospace;"><b style="color: white;letter-spacing: 1.3px;">NEW PRODUCT CATEGORY</b></span>
         <button type="button" class="close" data-dismiss="modal" onclick="category_form_reset()">&times;</button>
       </div>
       <div class="modal-body" style="background-color: #d6e1e9;">

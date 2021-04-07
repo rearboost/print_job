@@ -79,6 +79,8 @@
              session_regenerate_id();
              $_SESSION['level'] = $row['level'];
              $_SESSION['email'] = $email;
+             $_SESSION['basePath'] = "../../print_web/assets/img/";
+
              session_write_close();
 
              if($row['level']==3 || $row['level']==4){

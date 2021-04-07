@@ -167,6 +167,19 @@
       <?php else: ?>
 
       <?php endif ?>
+
+      <?php if ($_SESSION["level"]== 1): ?>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <a class="nav-link" href="web_settings">
+          <i class="fa fa-fw fa fa-cogs"></i>
+          <span class="nav-link-text">Web Settings</span>
+        </a>
+      </li>
+
+      <?php else: ?>
+
+      <?php endif ?>
     </ul>
 
     <ul class="navbar-nav ml-auto">
