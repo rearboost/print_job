@@ -97,6 +97,7 @@
   $(document).on('click', '.view_data', function(){
 
     var view_id = $(this).attr("name");
+    var imgUrl = '<?php echo $_SESSION['basePath']; ?>';
 
     $.ajax({
          url:"../controller/web_category_controller.php",
@@ -107,7 +108,8 @@
 
            $('#cat_id_edit').val(data['id']);
            $('#job_type_edit').val(data['type']);
-           $('#type_img_edit').val(data['image']);
+           $("#image_edit").attr("src",imgUrl+data['image']);
+
          }
     });
   });
@@ -133,9 +135,14 @@
         </div>
         <div class="col-sm-12">
           <label>Image</label><br>
-          <input type="file" name="type_img_edit" id="type_img_edit" style="margin-bottom: 20px;"/>
+           <input type="file" name="type_img_edit" id="type_img_edit" style="margin-bottom: 20px;" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" />
+           
         </div>
-            
+        <div class="col-sm-12">
+            <img id="output" src="../image/default-image.jpg" width="100" height="100">
+            <img id="image_edit" src="../image/default-image.jpg" width="100" height="100">
+        </div>
+        <br>
         <div class="col-sm-12">
           <button type="button" id="form_type_edit" name="form_type_edit"  onclick="Formedit()" class="btn btn-primary" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 0px; margin-left: 1.5%;">UPDATE</button>
         </div>
@@ -143,7 +150,7 @@
     </div>
   </div>
 </div>
-<div id="snackbar"><p id="msg_view"></p></div>
+<!-- <div id="snackbar_edit"><p id="msg_view_edit"></p></div> -->
 </div>
 
  <script>
@@ -181,22 +188,14 @@
           data: formData,               
           type: "POST",
           success:function(data){
-              myform1();
-              $('#msg_view').html(data);
+             
+             // myform1();
+              alert(data)
+              //$('#msg_view').html(data);
+              setTimeout(function(){location.reload(); },2500);
           }
   });
-
- }
- }
-
- // Message success view
- function myform1() {
-     var x = document.getElementById("snackbar");
-     x.className = "show";
-     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2500);
-
-     // Location refech
-     setTimeout(function(){location.reload(); },2500);
+  }
  }
 
   $(document).ready(function() {

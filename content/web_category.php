@@ -65,10 +65,9 @@
               </div>
               <div class="col-sm-12">
                 <label>Image</label> <br>
-                <input type="file" name="type_img" id="type_img" style="margin-bottom: 20px;"/>
+                <input type="file" name="type_img" id="type_img" style="margin-bottom: 20px;" accept="image/*" onchange="document.getElementById('output1').src = window.URL.createObjectURL(this.files[0])"/>
+                 <img id="output1" src="../image/default-image.jpg" width="100" height="100">
               </div>
-
-                  
               <div class="col-sm-12">
                 <button type="button" id="form_type_submit" name="form_type_submit"  onclick="TypeInsert()" class="btn btn-primary" style="height: 35px; width: 100px; color: white; border-color: #2CA8FF; background-color: #2CA8FF; font-size: 15px;  padding: 4px 10px; margin-top: 0px; margin-left: 1.5%;">SUBMIT</button>
               </div>
@@ -164,7 +163,6 @@ function TypeInsert() {
     formData.append('type_img', type_img);
     formData.append('form_type_submit', form_type_submit);
 
-
     $.ajax({
           url: "../controller/web_category_controller.php",
           contentType: false,
@@ -182,6 +180,7 @@ function TypeInsert() {
  }
 // Message success view for type insert
 function myform1() {
+
    var x = document.getElementById("snackbar");
    x.className = "show";
    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2500);
