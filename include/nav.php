@@ -158,6 +158,19 @@
       <?php if ($_SESSION["level"]== 1): ?>
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <a class="nav-link" href="pos_items">
+          <i class="fa fa-fw fa fa-cart-plus"></i>
+          <span class="nav-link-text">POS</span>
+        </a>
+      </li>
+
+      <?php else: ?>
+
+      <?php endif ?>
+
+      <?php if ($_SESSION["level"]== 1): ?>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
         <a class="nav-link" href="setting">
           <i class="fa fa-fw fa fa-cog"></i>
           <span class="nav-link-text">Settings</span>

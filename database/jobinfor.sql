@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2021 at 01:41 AM
+-- Generation Time: May 19, 2021 at 01:40 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.5.30
 
@@ -86,6 +86,86 @@ INSERT INTO `customer` (`id`, `customer_name`, `contact`, `address`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customertb`
+--
+
+CREATE TABLE `customertb` (
+  `id` int(11) NOT NULL,
+  `nic` varchar(100) NOT NULL,
+  `customerName` text NOT NULL,
+  `contactNo` varchar(100) NOT NULL,
+  `branch` text NOT NULL,
+  `username` varchar(300) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customertb`
+--
+
+INSERT INTO `customertb` (`id`, `nic`, `customerName`, `contactNo`, `branch`, `username`, `password`) VALUES
+(1, '13', 'HAsitha', '0188818811', '', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, '984567892V', 'Sachintha', '0771234567', '', 'sa', '202cb962ac59075b964b07152d234b70'),
+(3, '20', 'anne', '077 8956234', '', 'anne', '698d51a19d8a121ce581499d7b701668');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_orderitemstb`
+--
+
+CREATE TABLE `customer_orderitemstb` (
+  `id` int(11) NOT NULL,
+  `orderId` int(11) NOT NULL,
+  `itemName` varchar(100) NOT NULL,
+  `quantity` varchar(100) NOT NULL,
+  `price` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_orderitemstb`
+--
+
+INSERT INTO `customer_orderitemstb` (`id`, `orderId`, `itemName`, `quantity`, `price`) VALUES
+(1, 1, 'T-shirt', '1', '1200.00'),
+(2, 1, 'Key Tag', '1', '175.00'),
+(3, 2, 'T-shirt', '1', '1200.00'),
+(4, 2, 'Couple T-Shirts', '1', '2000.00'),
+(5, 2, 'Key Tag', '2', '175.00'),
+(6, 3, 'T-shirt', '2', '1200.00'),
+(7, 3, 'Couple T-Shirts', '1', '2000.00'),
+(8, 3, 'Key Tag', '4', '175.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_ordertb`
+--
+
+CREATE TABLE `customer_ordertb` (
+  `orderId` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `customerName` varchar(250) NOT NULL,
+  `order_from` varchar(250) DEFAULT NULL,
+  `address` varchar(250) DEFAULT NULL,
+  `contactNo` varchar(250) DEFAULT '0',
+  `deliveryAddress` varchar(250) DEFAULT 'NIL',
+  `status` varchar(300) NOT NULL DEFAULT 'New',
+  `createdDate` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_ordertb`
+--
+
+INSERT INTO `customer_ordertb` (`orderId`, `userID`, `customerName`, `order_from`, `address`, `contactNo`, `deliveryAddress`, `status`, `createdDate`) VALUES
+(1, 1, 'hasitha', 'Web', NULL, '0188818811', 'Welipenna', 'New', '2021-04-19'),
+(2, 2, 'Sachintha', 'Web', NULL, '0771234567', 'Bentara', 'New', '2021-04-19'),
+(3, 3, 'anne', 'Web', NULL, '077 8956234', 'Alwiz rd, bentota.', 'New', '2021-04-19');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `image`
 --
 
@@ -113,6 +193,13 @@ CREATE TABLE `invoice` (
   `invoice_id` int(11) NOT NULL,
   `job_id` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`invoice_id`, `job_id`) VALUES
+(1, '202103160436555');
 
 -- --------------------------------------------------------
 
@@ -164,9 +251,9 @@ CREATE TABLE `jobs` (
 INSERT INTO `jobs` (`id`, `job_no`, `customer`, `channel`, `job_type`, `product`, `category`, `material`, `size`, `bind`, `colour`, `user_description`, `date`, `quantity`, `unit_price`, `budget`, `discount`, `discounted`, `ad_pay_amount`, `rest`, `admin_description`, `state`, `accepted_by`, `designed_by`, `production_by`, `checked_by`, `failed_reason`, `cash`, `change_amt`, `payment`, `dispatch_day`, `dispatch_year`, `dispatch_month`, `dispatched_by`) VALUES
 (1, '202103160315141', 'amali senadheera', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', '', '2021-03-06', '3.00', '0.00', '900.00', '0.00', '900.00', '200.00', '0.00', '100 pages for each', 'complete', 'admin@gmail.com', 'user@gmail.com', 'production@gmail.com', 'cashier@gmail.com', '', '5000.00', '4300.00', '700.00', '2021-03-22', '2021', '03', 'admin@gmail.com'),
 (2, '202103160318292', 'Rashini Amanda', 'DIR', 'Design', 'Logo Design', 'Starter Package', '', 'small', 'None', '#f81616\n#1678f8\n#ffffff\n#ddd60e\n', '', '2021-03-10', '1.00', '0.00', '3500.00', '5.00', '3325.00', '1000.00', '0.00', 'only design', 'complete', 'admin@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'admin@gmail.com', '', '2500.00', '175.00', '2325.00', '2021-03-17', '2021', '03', 'cashier@gmail.com'),
-(3, '202103160221343', 'S.R.I Sandamali', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'medium', 'None', '#02a72b\n#ffffff\n#000000\n', '', '2021-03-12', '150.00', '0.00', '10000.00', '2.00', '9800.00', '3500.00', '0.00', 'With design', 'dispatch', 'admin@gmail.com', 'designer@gmail.com', 'cashier@gmail.com', 'cashier@gmail.com', '', '5000.00', '-1300.00', '6300.00', '2021-03-24', '2021', '03', 'cashier@gmail.com'),
+(3, '202103160221343', 'S.R.I Sandamali', 'DIR', 'Design', 'Business Card', 'Double side', 'mat card', 'medium', 'None', '#02a72b\n#ffffff\n#000000\n', '', '2021-03-12', '150.00', '0.00', '10000.00', '2.00', '9800.00', '3500.00', '0.00', 'With design', 'complete', 'admin@gmail.com', 'designer@gmail.com', 'cashier@gmail.com', 'cashier@gmail.com', '', '5000.00', '-1300.00', '6300.00', '2021-03-24', '2021', '03', 'cashier@gmail.com'),
 (4, '202103160426004', 'sandaru maleesha', 'EXP', 'Others', 'printout', 'No categories available', '', '', 'None', '', '', '2021-03-16', '25.00', '0.00', '750.00', '0.00', '750.00', '250.00', '500.00', 'Color printouts. immediately', 'reject', 'user@gmail.com', 'admin@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
-(5, '202103160436555', 'Amandi perera', 'DIR', 'Digital printing', 'Banner', 'No categories available', '', 'large', 'None', '#c20a54\n#120209\n#ffffff', '', '2021-03-16', '2.00', '0.00', '12500.00', '5.00', '11875.00', '4000.00', '7875.00', 'with design', 'dispatch', 'user@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'cashier@gmail.com', '', '0.00', '0.00', '0.00', '2021-03-22', '2021', '03', 'cashier@gmail.com'),
+(5, '202103160436555', 'Amandi perera', 'DIR', 'Digital printing', 'Banner', 'No categories available', '', 'large', 'None', '#c20a54\n#120209\n#ffffff', '', '2021-03-16', '2.00', '0.00', '12500.00', '5.00', '11875.00', '4000.00', '0.00', 'with design', 'dispatch', 'user@gmail.com', 'designer@gmail.com', 'production@gmail.com', 'cashier@gmail.com', '', '8000.00', '125.00', '7875.00', '2021-03-22', '2021', '03', 'admin@gmail.com'),
 (6, '202103180346376', 'Rajitha Nuwan', 'DIR', 'Design', 'Poster', 'No categories available', '', '', 'None', '', '', '2021-03-17', '1.00', '0.00', '1500.00', '0.00', '1500.00', '500.00', '1000.00', '', 'production', 'cashier@gmail.com', 'user@gmail.com', 'production@gmail.com', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
 (7, '202103180348507', 'Imashi Liyanage', 'EXP', 'Others', 'Photocopies', 'No categories available', '', '', 'None', '', '', '2021-03-17', '5.00', '0.00', '1500.00', '0.00', '1500.00', '0.00', '1500.00', '100 pages for each set', 'design', 'cashier@gmail.com', 'cashier@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
 (8, '202103180357018', 'M.G perera', 'DIR', 'Design', 'Ticket', 'No categories available', '', '', 'Tape', '#ffffff\n#000000\n', '', '2021-03-17', '150.00', '0.00', '2250.00', '0.00', '2250.00', '1500.00', '750.00', '', 'design', 'cashier@gmail.com', 'cashier@gmail.com', '', '', '', '0.00', '0.00', '0.00', '', '', '', ''),
@@ -197,6 +284,20 @@ INSERT INTO `jobs_type` (`id`, `type`) VALUES
 (4, 'Offset Printing'),
 (5, 'Sublimation Printing'),
 (6, 'Others');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pos_temp`
+--
+
+CREATE TABLE `pos_temp` (
+  `id` int(11) NOT NULL,
+  `product` varchar(255) NOT NULL,
+  `price` double(10,2) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `amount` double(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -441,6 +542,55 @@ INSERT INTO `product_type` (`id`, `product_id`, `type_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales`
+--
+
+CREATE TABLE `sales` (
+  `id` int(11) NOT NULL,
+  `discount` double(10,2) NOT NULL,
+  `total` double(10,2) NOT NULL,
+  `payment` double(10,2) NOT NULL,
+  `date` varchar(50) NOT NULL,
+  `inv_id` int(11) NOT NULL,
+  `customer` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `discount`, `total`, `payment`, `date`, `inv_id`, `customer`, `address`) VALUES
+(1, 0.00, 3950.00, 4000.00, '2021-05-18', 20211, '', ''),
+(2, 0.00, 750.00, 1000.00, '2021-05-18', 20212, 'Amali Kawya', 'Aluthgama');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sale_items`
+--
+
+CREATE TABLE `sale_items` (
+  `id` int(11) NOT NULL,
+  `sale_id` int(11) NOT NULL,
+  `product` varchar(255) NOT NULL,
+  `price` double(10,2) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `amount` double(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sale_items`
+--
+
+INSERT INTO `sale_items` (`id`, `sale_id`, `product`, `price`, `qty`, `amount`) VALUES
+(1, 1, 'Bookmark', 30.00, 75, 2250.00),
+(2, 1, 'Banner print', 800.00, 2, 1700.00),
+(3, 2, 'Tickets', 15.00, 50, 750.00);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `signup`
 --
 
@@ -485,6 +635,28 @@ INSERT INTO `user_level` (`id`, `description`, `url`) VALUES
 (3, 'Designer', ''),
 (4, 'Production', ''),
 (5, 'QA', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `web_order`
+--
+
+CREATE TABLE `web_order` (
+  `id` int(11) NOT NULL,
+  `itemid` int(11) NOT NULL,
+  `sellingPrice` varchar(200) NOT NULL,
+  `product_qty` varchar(200) NOT NULL,
+  `userID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `web_order`
+--
+
+INSERT INTO `web_order` (`id`, `itemid`, `sellingPrice`, `product_qty`, `userID`) VALUES
+(6, 2, '2000.00', '2', 0),
+(11, 4, '80.00', '1', 3);
 
 -- --------------------------------------------------------
 
@@ -755,6 +927,24 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `customertb`
+--
+ALTER TABLE `customertb`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer_orderitemstb`
+--
+ALTER TABLE `customer_orderitemstb`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer_ordertb`
+--
+ALTER TABLE `customer_ordertb`
+  ADD PRIMARY KEY (`orderId`);
+
+--
 -- Indexes for table `invoice`
 --
 ALTER TABLE `invoice`
@@ -770,6 +960,12 @@ ALTER TABLE `jobs`
 -- Indexes for table `jobs_type`
 --
 ALTER TABLE `jobs_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pos_temp`
+--
+ALTER TABLE `pos_temp`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -791,6 +987,18 @@ ALTER TABLE `product_type`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sale_items`
+--
+ALTER TABLE `sale_items`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `signup`
 --
 ALTER TABLE `signup`
@@ -800,6 +1008,12 @@ ALTER TABLE `signup`
 -- Indexes for table `user_level`
 --
 ALTER TABLE `user_level`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `web_order`
+--
+ALTER TABLE `web_order`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -841,10 +1055,25 @@ ALTER TABLE `category`
 ALTER TABLE `customer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
+-- AUTO_INCREMENT for table `customertb`
+--
+ALTER TABLE `customertb`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `customer_orderitemstb`
+--
+ALTER TABLE `customer_orderitemstb`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `customer_ordertb`
+--
+ALTER TABLE `customer_ordertb`
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `jobs`
 --
@@ -855,6 +1084,11 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `jobs_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `pos_temp`
+--
+ALTER TABLE `pos_temp`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `product`
 --
@@ -871,6 +1105,16 @@ ALTER TABLE `product_category`
 ALTER TABLE `product_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 --
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sale_items`
+--
+ALTER TABLE `sale_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `signup`
 --
 ALTER TABLE `signup`
@@ -881,6 +1125,11 @@ ALTER TABLE `signup`
 ALTER TABLE `user_level`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `web_order`
+--
+ALTER TABLE `web_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
 -- AUTO_INCREMENT for table `web_products`
 --
 ALTER TABLE `web_products`
@@ -889,12 +1138,12 @@ ALTER TABLE `web_products`
 -- AUTO_INCREMENT for table `web_product_rel`
 --
 ALTER TABLE `web_product_rel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 --
 -- AUTO_INCREMENT for table `web_product_type`
 --
 ALTER TABLE `web_product_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `web_trending_products`
 --
