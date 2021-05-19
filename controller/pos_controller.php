@@ -29,7 +29,7 @@
                         $sql_temp = "UPDATE pos_temp
                         SET qty = qty + $quantity, 
                             amount = amount + $amount
-                        WHERE product= '$product_name'";
+                        WHERE product= '$product_name' AND price='$price'";
                         $result_temp = mysqli_query($conn,$sql_temp);
                 }
 
